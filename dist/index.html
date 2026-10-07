@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Laboratorio de grupos · Hamermesh, capítulo 1</title>
+  <meta name="description" content="Estudia el primer capítulo de Hamermesh en español con simulaciones de simetrías, tablas de grupos, subgrupos, clases laterales, conjugación, cocientes y ejercicios explicados.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%236154d9'/%3E%3Cpath d='M20 8L7 31h26Z' fill='none' stroke='white' stroke-width='2.5'/%3E%3Ccircle cx='20' cy='8' r='3' fill='%236ce2bc'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al laboratorio</a>
+  <aside class="sidebar">
+    <a class="brand" href="#1/explorar"><span class="brand-symbol">△</span><span>Laboratorio<br><strong>de grupos</strong></span></a>
+    <div class="book-label">HAMERMESH · CAPÍTULO 1</div>
+    <nav id="lessons" aria-label="Secciones del capítulo"></nav>
+    <div class="side-note"><span class="mini-label">EL HILO CONDUCTOR</span><p>Un triángulo.<br>Seis operaciones.<br>Siete ideas conectadas.</p><span class="math">D₃ ≅ S₃</span></div>
+    <a class="source-link" href="#fuente">Sobre esta guía y la fuente</a>
+  </aside>
+  <div class="page">
+    <header class="topbar"><span>Cuaderno interactivo <span class="top-divider">/</span> <strong>Elementos de teoría de grupos</strong></span><button class="quiet-button" id="share">Compartir sección</button></header>
+    <main id="main" tabindex="-1">
+      <div class="chapter-intro"><div><span class="eyebrow">OBSERVA · EXPERIMENTA · COMPRENDE</span><h1>Elementos de teoría de grupos</h1></div><span class="chapter-badge">01 <span>CAPÍTULO</span></span></div>
+      <section class="lesson-header"><div><span id="section-ref" class="mini-label"></span><h2 id="lesson-title"></h2><p id="lesson-desc"></p></div><span id="page-ref" class="page-ref"></span></section>
+      <div class="tabs" role="tablist" aria-label="Forma de estudiar"><button role="tab" id="tab-explorar" data-tab="explorar">Explorar</button><button role="tab" id="tab-apuntes" data-tab="apuntes">Entender paso a paso</button><button role="tab" id="tab-practicar" data-tab="practicar">Practicar</button></div>
+      <div id="content" role="tabpanel"></div>
+      <div class="chapter-navigation"><button id="previous" class="quiet-button">Sección anterior</button><span id="section-position"></span><button id="next" class="quiet-button">Sección siguiente</button></div>
+      <footer id="fuente"><strong>Una guía para leer junto a Hamermesh.</strong><p>Basada en <cite>Group Theory and Its Application to Physical Problems</cite>, capítulo 1, §§ 1-1 a 1-7, páginas impresas 1–31 (páginas 7–37 del PDF adjunto). Explicaciones, visualizaciones y ejercicios redactados para esta guía. Los laboratorios usan ejemplos finitos; el capítulo también trata grupos infinitos.</p><p>Convención: <span class="math">AB</span> aplica primero <span class="math">B</span> y después <span class="math">A</span>. <span class="math">e</span> es la identidad (el libro también usa <span class="math">I</span>). <span class="math">Cₙ</span> denota un grupo cíclico de orden n; <span class="math">Sₙ</span>, las permutaciones de n objetos; <span class="math">Aₙ</span>, sus permutaciones pares. Aquí <span class="math">D₃</span> es el grupo de seis simetrías planas de un triángulo.</p></footer>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
