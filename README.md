@@ -1,40 +1,57 @@
-# Laboratorio de grupos · Hamermesh
+# Cuaderno de física · Biblioteca del máster
 
-Web en español para estudiar los capítulos 1 y 2 de *Group Theory and Its Application to Physical Problems*. El capítulo 1 cubre §§ 1-1 a 1-7, páginas impresas 1–31 (PDF: 7–37); el capítulo 2, §§ 2-1 a 2-10, páginas impresas 32–67 (PDF: 38–73).
+Portal de estudio en español, organizado por material, capítulo y sección. Conserva los dos capítulos de Hamermesh y añade el capítulo 1 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*: §§ 1.1–1.4 y ejercicios, páginas impresas 1–14 (PDF: 17–30).
 
-Los siete laboratorios cubren composición, axiomas de grupo, subgrupos y acción regular de Cayley, clases laterales y Lagrange, conjugación y clases de Sₙ, normalidad/cocientes/paridad, y productos directos. Incluye ejemplos de matrices y razón doble, apuntes y 21 preguntas originales con respuestas razonadas.
+Cada sección ofrece **Explorar**, **Entender paso a paso** y **Practicar**. Las explicaciones, gráficos y preguntas se redactan para esta guía; los PDF y las páginas escaneadas no se distribuyen en la web. El portal es estático, sin dependencias externas. Las respuestas solo se conservan mientras la página está abierta, separadas por material, capítulo y sección.
 
-El capítulo 2 añade diez laboratorios y 30 preguntas razonadas: operaciones espaciales y proyección estereográfica, equivalencia de ejes, grupos Cₙ y Dₙ, redes periódicas e índices de Miller, los cinco sólidos regulares, reflexiones en las familias Cₙ y Dₙ, grupos poliédricos completos, catálogo de los 32 grupos cristalográficos y simetría clásica de dos colores.
+## Contenido publicado
 
-El selector permite cambiar de capítulo. Los enlaces originales, como `#3/apuntes`, se conservan. El capítulo 2 usa `#capitulo-2/3/apuntes`. La web sigue siendo estática y compartible en la misma dirección.
+- **Hamermesh, capítulo 1:** siete laboratorios y 21 preguntas sobre transformaciones, grupos, subgrupos/Cayley, clases laterales/Lagrange, conjugación, cocientes/homomorfismos y productos directos. Páginas impresas 1–31, PDF 7–37.
+- **Hamermesh, capítulo 2:** diez laboratorios y 30 preguntas sobre operaciones espaciales, ejes, grupos axiales, redes/Miller, poliedros, reflexiones, grupos completos, 32 grupos cristalográficos y simetría clásica de colores. Páginas impresas 32–67, PDF 38–73.
+- **Arrigo, capítulo 1:** cuatro secciones y 21 preguntas. Incluye círculo y dilataciones, un invariante racional, composición de flujos, campos de pendientes y regla de la cadena, prueba de invariancia y un contraejemplo, y tres reducciones con gráficos enlazados en (x,y) y (r,s), parámetros y derivación en cuatro pasos. Los apuntes añaden tres prácticas desarrolladas, comparación con Riccati clásica y recuperación de soluciones excluidas.
 
-El material adapta las ideas y las desarrolla con ejemplos propios. No incorpora el PDF ni sus páginas escaneadas al sitio publicado. Todo funciona en el navegador, sin dependencias externas. Las respuestas de los ejercicios se mantienen únicamente mientras la página permanece abierta. Los enlaces con fragmentos permiten compartir sección y pestaña.
+## Abrir localmente
 
-## Vista local
+Desde este directorio:
 
-Desde este directorio: `python3 -m http.server 5173 --bind 127.0.0.1 --directory dist`.
+```sh
+python3 -m http.server 5174 --bind 127.0.0.1 --directory dist
+```
 
-## Estructura
+La portada es `#biblioteca`. La navegación canónica es `#material/<material>/<capítulo>/<sección>/<pestaña>`, por ejemplo `#material/arrigo/1/3/explorar`. Siguen funcionando los enlaces antiguos `#3/apuntes` y `#capitulo-2/3/apuntes`. Los controles Compartir copian enlaces directos.
 
-- `dist/index.html`: estructura, metadatos, referencias y convención.
-- `dist/styles.css`: presentación adaptable y accesibilidad.
-- `dist/algebra.mjs`: cálculos exactos de las permutaciones de S₃ y clases de Sₙ.
-- `dist/content.mjs`: apuntes y ejercicios.
-- `dist/app.mjs`: laboratorios y navegación.
-- `dist/symmetry.mjs`: matrices ortogonales 3D, generación de grupos, órbitas, clases, sólidos y redes.
-- `dist/chapter2.mjs`: diez laboratorios de simetría espacial y catálogo cristalográfico.
-- `dist/chapter2-content.mjs`: explicaciones y preguntas del segundo capítulo.
-- `tests/symmetry.test.mjs`: comprobaciones matemáticas del segundo capítulo.
-- `.openai/hosting.json`: identidad del sitio y salida estática.
+## Añadir contenidos en el futuro
 
-Convención única: AB aplica B primero y A después. Las simetrías planas de un triángulo se identifican con S₃. La acción de Cayley sobre los seis elementos del grupo se distingue explícitamente de la acción sobre los tres vértices.
+El catálogo está en `dist/catalog.mjs`. Cada material tiene un identificador estable, autor, título, fuente, descripción y capítulos. Cada capítulo declara título, secciones, apuntes, preguntas, referencias de páginas, hilo conductor y tipo de laboratorio. La portada, los selectores, los enlaces y los contadores se generan desde este catálogo.
 
-En el capítulo 2 E indica identidad e I inversión espacial; Sₙ es rotación-reflexión, mientras que en el primero Sₙ denota permutaciones. Dₙ se realiza con rotaciones propias 3D. Y conserva el nombre de Hamermesh para el grupo icosaédrico. Se distingue la operación Sₙ del grupo que genera y la rotoinversión de Hermann–Mauguin de la rotación-reflexión. Las matrices 3D usan tolerancia numérica 10⁻⁷; se muestran tres decimales. La restricción cristalográfica se refiere a redes periódicas ordinarias. La simetría de colores es el modelo clásico del libro, sin extrapolar R²=E a todos los sistemas cuánticos.
+Para añadir un capítulo, crea sus arrays de secciones/apuntes/preguntas e incorpora una entrada a su material en el catálogo. Para un material nuevo, añade una entrada con un identificador único. Conserva los identificadores publicados para mantener los enlaces. Los arrays deben tener la misma longitud; cada pregunta contiene `q`, `a`, `correct` y `why`.
+
+Si necesita laboratorios propios, añade un módulo con una función que reciba la sección y el contenedor; intégralo en la selección de `renderer` de `dist/app.mjs`. Las explicaciones y los ejercicios usan la misma interfaz para todos los materiales. El sitio se publica reutilizando `.openai/hosting.json` y su identidad existente.
+
+## Archivos
+
+- `dist/index.html`, `dist/styles.css`: estructura compartida, biblioteca, presentación adaptable y accesibilidad.
+- `dist/catalog.mjs`, `dist/app.mjs`: catálogo, rutas y laboratorios originales de Hamermesh.
+- `dist/algebra.mjs`, `dist/content.mjs`: cálculos exactos, apuntes y preguntas del primer capítulo de Hamermesh.
+- `dist/symmetry.mjs`, `dist/chapter2.mjs`, `dist/chapter2-content.mjs`: grupos espaciales y contenido del segundo capítulo.
+- `dist/lie-math.mjs`: transformaciones, jacobianos, pendientes, coordenadas y soluciones reducidas de Arrigo.
+- `dist/arrigo.mjs`, `dist/arrigo-content.mjs`: gráficos SVG calculados, controles, apuntes con MathML nativo y preguntas originales.
+- `tests/symmetry.test.mjs`, `tests/lie.test.mjs`: verificaciones matemáticas.
+
+## Convenciones y dominios
+
+Hamermesh usa AB para aplicar B antes de A. D₃ realiza las seis simetrías planas de un triángulo. En el capítulo 2 E es identidad e I inversión; Sₙ denota rotación-reflexión, Y el grupo icosaédrico y Dₙ se realiza con rotaciones propias 3D. Las matrices espaciales usan tolerancia 10⁻⁷. La restricción cristalográfica corresponde a redes periódicas ordinarias. Los colores representan el modelo clásico del libro.
+
+Arrigo usa T_b∘T_a para aplicar a antes de b; ε es un parámetro real. Las fórmulas racionales son flujos locales: no se cruza un polo aunque una fórmula exista al otro lado. Los apuntes justifican las identidades simbólicas y distinguen las pruebas de las ilustraciones numéricas. El círculo usa la misma escala física en ambos ejes. Los gráficos interrumpen las curvas en singularidades y los puntos excluidos.
+
+La gráfica de Riccati muestra x>0 y C>0, además de y=±1/x; la guía explica C general y la carta x<0. En la reducción por cociente se excluyen x=0 y x+y=0; en la de recíprocos se recupera y=0 como solución de la EDO original. Los campos de pendientes y puntos son ilustraciones calculadas con valores redondeados.
 
 ## Verificación
 
-Se comprobó la asociatividad en los 216 triples de S₃, los 64 subconjuntos posibles (seis subgrupos), las particiones en clases laterales y los tamaños de las clases de S₃ a S₇. En navegador se recorrieron las 21 vistas y los siete laboratorios a ancho móvil, con pruebas de los controles y los ejercicios. No hubo errores de ejecución ni desbordamiento horizontal.
+```sh
+node --test tests/*.test.mjs
+```
 
-Para el capítulo 2: `node --test tests/symmetry.test.mjs`. Comprueba órdenes y clases de T/Td/Th/O/Oh/Y/Yh, cierre y ortogonalidad, conservación de los cinco poliedros, familias axiales, presencia de inversión según paridad, conservación de los modelos de anillos, conjugación, proyección de polos, restricciones de ambas redes, clasificación en siete sistemas, preguntas y asignación de colores. En navegador se verificaron las 51 vistas de ambos capítulos a 390 px, los diez laboratorios nuevos a 1280 px y controles de conjugación, redes, Miller, D₃d, catálogo, colores y ejercicios. No se detectaron errores de ejecución ni desbordamientos horizontales. Las respuestas de los dos capítulos se mantienen separadas.
+Las comprobaciones cubren órdenes, cierre, clases, ortogonalidad, poliedros, familias axiales, redes y colores de Hamermesh; identidad, composición e inversos de ocho flujos; invariantes geométricos; regla de la cadena e invariancia de cinco EDO; tres cambios de coordenadas; integración, reconstrucción y soluciones excluidas. El catálogo comprueba capítulos y preguntas completos.
 
-Se incluye una integración opcional con `document.modelContext` para configurar la composición del triángulo. El navegador de verificación no implementa WebMCP nativo; su validación nativa no está disponible. Un contexto de prueba verificó registro, actualización de la interfaz e inputs inválidos. Esta integración no es necesaria para usar la web.
+La revisión en navegador recorre las 63 vistas de lectura/laboratorio/práctica a 1440 y 390 px, además de los selectores, contraejemplos, polos, inversos, derivaciones, preguntas y enlaces anteriores. La integración opcional existente con document.modelContext para el triángulo se conserva; no es necesaria para usar la web.
