@@ -26,7 +26,7 @@ El catálogo está en `dist/catalog.mjs`. Cada material tiene un identificador e
 
 Para añadir un capítulo, crea sus arrays de secciones/apuntes/preguntas e incorpora una entrada a su material en el catálogo. Para un material nuevo, añade una entrada con un identificador único. Conserva los identificadores publicados para mantener los enlaces. Los arrays deben tener la misma longitud; cada pregunta contiene `q`, `a`, `correct` y `why`.
 
-Si necesita laboratorios propios, añade un módulo con una función que reciba la sección y el contenedor; intégralo en la selección de `renderer` de `dist/app.mjs`. Las explicaciones y los ejercicios usan la misma interfaz para todos los materiales. El sitio se publica reutilizando `.openai/hosting.json` y su identidad existente.
+Si necesita laboratorios propios, añade un módulo con una función que reciba la sección y el contenedor; intégralo en la selección de `renderer` de `dist/app.mjs`. Las explicaciones y los ejercicios usan la misma interfaz para todos los materiales. El manifiesto `.openai/hosting.json` conserva la identidad de la publicación original en Sites.
 
 ## Archivos
 
@@ -55,3 +55,18 @@ node --test tests/*.test.mjs
 Las comprobaciones cubren órdenes, cierre, clases, ortogonalidad, poliedros, familias axiales, redes y colores de Hamermesh; identidad, composición e inversos de ocho flujos; invariantes geométricos; regla de la cadena e invariancia de cinco EDO; tres cambios de coordenadas; integración, reconstrucción y soluciones excluidas. El catálogo comprueba capítulos y preguntas completos.
 
 La revisión en navegador recorre las 63 vistas de lectura/laboratorio/práctica a 1440 y 390 px, además de los selectores, contraejemplos, polos, inversos, derivaciones, preguntas y enlaces anteriores. La integración opcional existente con document.modelContext para el triángulo se conserva; no es necesaria para usar la web.
+
+## Publicación en GitHub Pages
+
+El repositorio de origen es `prcalopa/hamermesh-lab`. La rama `main` conserva el proyecto completo; `gh-pages` contiene únicamente los archivos de `dist`, con `index.html` en su raíz. `.nojekyll` indica que se sirven los archivos estáticos directamente.
+
+Para publicar nuevos capítulos después de guardar los cambios en un commit:
+
+```sh
+git push github main
+bash scripts/deploy-github-pages.sh
+```
+
+El script comprueba las matemáticas y publica una instantánea de la web, con actualizaciones normales sin forzar la historia. GitHub Pages debe configurarse en Settings → Pages con Source **Deploy from a branch**, rama **gh-pages** y carpeta **/(root)**. Los módulos, estilos y enlaces usan rutas relativas, compatibles con la subcarpeta del proyecto.
+
+GitHub Pages en repositorios privados requiere un plan compatible. El comando de publicación no cambia la visibilidad del repositorio ni activa Pages por su cuenta.
