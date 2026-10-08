@@ -1,4 +1,5 @@
 import {transform,pushSlope,odeRhs,riccati,coordinates,reduced,reducedSolution} from './lie-math.mjs';
+export {fmt,colors,range,note,legend,frame,sampled,plot,bindRanges,directionField};
 const $=s=>document.querySelector(s);
 const fmt=(v,n=3)=>Number.isFinite(v)?(Math.abs(v)<.5*10**(-n)?0:v).toLocaleString('es-ES',{maximumFractionDigits:n,minimumFractionDigits:n}):'no definido';
 const colors={original:'#c3b6ff',changed:'#6ce2bc',ghost:'#b8c2da',red:'#ffac95'};

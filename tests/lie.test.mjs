@@ -48,7 +48,7 @@ test('Soluciones integradas: derivadas, reconstrucción y casos excluidos',()=>{
  }
 });
 test('Catálogo ampliable: capítulos completos y preguntas con respuestas válidas',()=>{
- assert.equal(materials.length,2);assert.equal(materials.flatMap(m=>m.chapters).length,3);
+ assert.equal(materials.length,2);assert.equal(materials.flatMap(m=>m.chapters).length,4);
  for(const m of materials)for(const c of m.chapters){assert.equal(c.lessons.length,c.notes.length);assert.equal(c.lessons.length,c.quizzes.length);for(const qs of c.quizzes)for(const q of qs){assert.ok(q.a[q.correct]);assert.ok(q.why.length>30);}}
  assert.equal(materials.find(m=>m.id==='arrigo').chapters[0].quizzes.flat().length,21);
 });

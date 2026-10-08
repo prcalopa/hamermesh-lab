@@ -1,6 +1,6 @@
 # Cuaderno de física · Biblioteca del máster
 
-Portal de estudio en español, organizado por material, capítulo y sección. Conserva los dos capítulos de Hamermesh y añade el capítulo 1 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*: §§ 1.1–1.4 y ejercicios, páginas impresas 1–14 (PDF: 17–30).
+Portal de estudio en español, organizado por material, capítulo y sección. Incluye dos capítulos de Hamermesh y los capítulos 1 y 2 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. La biblioteca ofrece 33 secciones interactivas y 120 preguntas razonadas.
 
 Cada sección ofrece **Explorar**, **Entender paso a paso** y **Practicar**. Las explicaciones, gráficos y preguntas se redactan para esta guía; los PDF y las páginas escaneadas no se distribuyen en la web. El portal es estático, sin dependencias externas. Las respuestas solo se conservan mientras la página está abierta, separadas por material, capítulo y sección.
 
@@ -9,6 +9,7 @@ Cada sección ofrece **Explorar**, **Entender paso a paso** y **Practicar**. Las
 - **Hamermesh, capítulo 1:** siete laboratorios y 21 preguntas sobre transformaciones, grupos, subgrupos/Cayley, clases laterales/Lagrange, conjugación, cocientes/homomorfismos y productos directos. Páginas impresas 1–31, PDF 7–37.
 - **Hamermesh, capítulo 2:** diez laboratorios y 30 preguntas sobre operaciones espaciales, ejes, grupos axiales, redes/Miller, poliedros, reflexiones, grupos completos, 32 grupos cristalográficos y simetría clásica de colores. Páginas impresas 32–67, PDF 38–73.
 - **Arrigo, capítulo 1:** cuatro secciones y 21 preguntas. Incluye círculo y dilataciones, un invariante racional, composición de flujos, campos de pendientes y regla de la cadena, prueba de invariancia y un contraejemplo, y tres reducciones con gráficos enlazados en (x,y) y (r,s), parámetros y derivación en cuatro pasos. Los apuntes añaden tres prácticas desarrolladas, comparación con Riccati clásica y recuperación de soluciones excluidas.
+- **Arrigo, capítulo 2:** doce laboratorios y 48 preguntas sobre infinitesimales/coordenadas canónicas, condición de Lie, EDO lineales, Bernoulli, homogéneas, exactas y Riccati, operadores/prolongaciones, segundo orden, Blasius, sistemas de primer orden y fuerza central. Páginas impresas 15–72, PDF 31–88. Cada laboratorio tiene apuntes con derivaciones y una práctica guiada. Los modelos incluyen solución exacta frente a aproximación tangente, búsqueda de pesos, gráficos enlazados, contornos implícitos, jets, reducción a s″=1, disparo numérico y órbitas rotables.
 
 ## Abrir localmente
 
@@ -36,7 +37,8 @@ Si necesita laboratorios propios, añade un módulo con una función que reciba 
 - `dist/symmetry.mjs`, `dist/chapter2.mjs`, `dist/chapter2-content.mjs`: grupos espaciales y contenido del segundo capítulo.
 - `dist/lie-math.mjs`: transformaciones, jacobianos, pendientes, coordenadas y soluciones reducidas de Arrigo.
 - `dist/arrigo.mjs`, `dist/arrigo-content.mjs`: gráficos SVG calculados, controles, apuntes con MathML nativo y preguntas originales.
-- `tests/symmetry.test.mjs`, `tests/lie.test.mjs`: verificaciones matemáticas.
+- `dist/arrigo2-math.mjs`, `dist/arrigo2.mjs`, `dist/arrigo2-content.mjs`: modelos matemáticos, laboratorios, derivaciones y preguntas del capítulo 2 de Arrigo.
+- `tests/symmetry.test.mjs`, `tests/lie.test.mjs`, `tests/arrigo2.test.mjs`: verificaciones matemáticas.
 
 ## Convenciones y dominios
 
@@ -46,15 +48,19 @@ Arrigo usa T_b∘T_a para aplicar a antes de b; ε es un parámetro real. Las f�
 
 La gráfica de Riccati muestra x>0 y C>0, además de y=±1/x; la guía explica C general y la carta x<0. En la reducción por cociente se excluyen x=0 y x+y=0; en la de recíprocos se recupera y=0 como solución de la EDO original. Los campos de pendientes y puntos son ilustraciones calculadas con valores redondeados.
 
+En el capítulo 2 de Arrigo, ξ,η denotan los infinitesimales que el libro llama X,Y. Las referencias de sección siguen los apartados reales del libro aunque se dividan en doce lecciones. Se señalan las erratas comprobadas en las páginas 16, 17, 31, 42 y la orientación angular de la p. 71. Los factores integrantes y las coordenadas recíprocas se usan en cartas regulares; las soluciones excluidas se recuperan explícitamente. La integral primera del ejemplo exacto escala bajo el grupo: no se confunde con un invariante del grupo.
+
+Blasius usa la normalización y‴+yy″=0, Runge–Kutta de cuarto orden con paso máximo 0,015 y bisección para ajustar y′ en x=6, 8 o 10. El problema truncado aproxima la condición en infinito. El sistema cuadrático y la órbita de fuerza central se calculan mediante soluciones exactas. La fuerza del último ejemplo es repulsiva; el momento angular y la energía se comprueban independientemente.
+
 ## Verificación
 
 ```sh
 node --test tests/*.test.mjs
 ```
 
-Las comprobaciones cubren órdenes, cierre, clases, ortogonalidad, poliedros, familias axiales, redes y colores de Hamermesh; identidad, composición e inversos de ocho flujos; invariantes geométricos; regla de la cadena e invariancia de cinco EDO; tres cambios de coordenadas; integración, reconstrucción y soluciones excluidas. El catálogo comprueba capítulos y preguntas completos.
+Las 28 comprobaciones cubren órdenes, cierre, clases, ortogonalidad, poliedros, familias axiales, redes y colores de Hamermesh; identidad, composición e inversos de flujos; invariantes geométricos; regla de la cadena e invariancia de EDO; cambios de coordenadas, integración y soluciones excluidas. El capítulo 2 comprueba factores integrantes, ocho generadores de segundo orden, prolongaciones, reducción, convergencia del disparo de Blasius, escala temporal y conservación de momento angular/energía. El catálogo comprueba capítulos y preguntas completos.
 
-La revisión en navegador recorre las 63 vistas de lectura/laboratorio/práctica a 1440 y 390 px, además de los selectores, contraejemplos, polos, inversos, derivaciones, preguntas y enlaces anteriores. La integración opcional existente con document.modelContext para el triángulo se conserva; no es necesaria para usar la web.
+La revisión en navegador recorre las 99 vistas de lectura/laboratorio/práctica a 1440 y 390 px (198 comprobaciones de página), además de 190 interacciones del capítulo nuevo con selectores, extremos de controles, botones y respuestas. Comprueba errores de JavaScript, desbordamiento y coordenadas SVG inválidas. Se revisan capturas de los gráficos y los apuntes. La integración opcional existente con document.modelContext para el triángulo se conserva; no es necesaria para usar la web.
 
 ## Publicación en GitHub Pages
 
