@@ -58,7 +58,7 @@ La revisión en navegador recorre las 63 vistas de lectura/laboratorio/práctica
 
 ## Publicación en GitHub Pages
 
-El repositorio de origen es `prcalopa/hamermesh-lab`. La rama `main` conserva el proyecto completo; `gh-pages` contiene únicamente los archivos de `dist`, con `index.html` en su raíz. `.nojekyll` indica que se sirven los archivos estáticos directamente.
+La web se publica en [prcalopa.github.io/hamermesh-lab](https://prcalopa.github.io/hamermesh-lab/). El repositorio público de origen es `prcalopa/hamermesh-lab`. La rama `main` conserva el proyecto completo; `gh-pages` contiene únicamente los archivos de `dist`, con `index.html` en su raíz. `.nojekyll` indica que se sirven los archivos estáticos directamente.
 
 Para publicar nuevos capítulos después de guardar los cambios en un commit:
 
@@ -69,4 +69,4 @@ bash scripts/deploy-github-pages.sh
 
 El script comprueba las matemáticas y publica una instantánea de la web, con actualizaciones normales sin forzar la historia. GitHub Pages debe configurarse en Settings → Pages con Source **Deploy from a branch**, rama **gh-pages** y carpeta **/(root)**. Los módulos, estilos y enlaces usan rutas relativas, compatibles con la subcarpeta del proyecto.
 
-GitHub Pages en repositorios privados requiere un plan compatible. El comando de publicación no cambia la visibilidad del repositorio ni activa Pages por su cuenta.
+La publicación de este repositorio usa GitHub Pages con acceso público. Los PDF quedan excluidos por `.gitignore` y no forman parte de la historia del repositorio. El comando de publicación no cambia la visibilidad del repositorio ni activa Pages por su cuenta.
