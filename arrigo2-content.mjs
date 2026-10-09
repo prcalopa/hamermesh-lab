@@ -1,9 +1,27 @@
 import {eq} from './arrigo-content.mjs';
+import {tex} from './math.mjs';
 const mi=s=>`<mi>${s}</mi>`,mn=s=>`<mn>${s}</mn>`,mo=s=>`<mo>${s}</mo>`,row=s=>`<mrow>${s}</mrow>`,sup=(s,p)=>`<msup>${mi(s)}${mn(p)}</msup>`,frac=(a,b)=>`<mfrac>${row(a)}${row(b)}</mfrac>`;
 const text=s=>`<mtext>${s}</mtext>`;
 const lines=rows=>`<mtable columnalign="left" rowspacing="0.5em">${rows.map(s=>`<mtr><mtd>${s}</mtd></mtr>`).join('')}</mtable>`;
-const formula=(s,label)=>eq(s,label);
-export const inlineMath=s=>s.replace(/([a-zA-Z0-9μ]|\|x\|)\^\{([^}]+)\}/g,'$1<sup>$2</sup>');
+const displayFormulae={
+ 'Gamma igual xi por derivada parcial en x más eta por derivada parcial en y':String.raw`\Gamma=\xi\frac{\partial}{\partial x}+\eta\frac{\partial}{\partial y}`,
+ 'Gamma r cero y Gamma s uno':String.raw`\Gamma r=0,\qquad \Gamma s=1`,
+ 'Condición de invariancia de Lie':String.raw`\begin{aligned}&\eta_x+(\eta_y-\xi_x)F\\&\quad-\xi_yF^2-\xi F_x-\eta F_y=0\end{aligned}`,
+ 'Factor integrante y ecuación reducida lineal':String.raw`\mu=e^{\int P(x)\,\mathrm{d}x},\qquad \frac{\mathrm{d}s}{\mathrm{d}r}=\mu Q`,
+ 's menos uno sobre dos x cuadrado y cuadrado; derivada uno sobre x':String.raw`s=-\frac{1}{2x^2y^2},\qquad\frac{\mathrm{d}s}{\mathrm{d}x}=\frac1x`,
+ 'Derivada de r respecto a s igual F de r menos r':String.raw`\frac{\mathrm{d}r}{\mathrm{d}s}=F(r)-r`,
+ 'Factor integrante uno sobre M xi más N eta; potencial un décimo logaritmo de valor absoluto de I':String.raw`\mu=\frac{1}{M\xi+N\eta},\qquad\Phi=\frac1{10}\ln|I|`,
+ 'Recíproco de y menos solución particular y ecuación lineal':String.raw`w=\frac{1}{y-y_1},\qquad w'+Aw=-P`,
+ 'Recurrencia de prolongación':String.raw`\eta^{(k)}=D_x\eta^{(k-1)}-y^{(k)}D_x\xi`,
+ 'Segunda prolongación expandida':String.raw`\begin{aligned}\eta^{(2)}={}&\eta_{xx}+(2\eta_{xy}-\xi_{xx})p\\&+(\eta_{yy}-2\xi_{xy})p^2-\xi_{yy}p^3\\&+(\eta_y-2\xi_x)q-3\xi_y pq\end{aligned}`,
+ 'Segunda ecuación no lineal reducida a segunda derivada de s igual uno':String.raw`y''+3yy'+y^3=0\quad\Longrightarrow\quad\frac{\mathrm{d}^2s}{\mathrm{d}r^2}=1`,
+ 'Reducción autónoma de Blasius':String.raw`\begin{gathered}y'''+yy''=0\\ r=y,\quad v(r)=y'\\ v v_{rr}+v_r^2+r v_r=0\end{gathered}`,
+ 'Generador de escala del sistema y variables desacopladas':String.raw`\begin{gathered}\Gamma=t\partial_t-x\partial_x-y\partial_y\\\dot U=U^2,\qquad\dot V=V^2\end{gathered}`,
+ 'Momento angular, ecuación radial y energía':String.raw`\begin{aligned}L&=u^2 v'\\u''&=\frac{L^2+1}{u^3}\\E&=\frac{(u')^2}{2}+\frac{L^2+1}{2u^2}\end{aligned}`
+};
+const formula=(s,label)=>displayFormulae[label]?tex(displayFormulae[label],true):eq(s,label);
+// The shared renderer handles powers without rewriting HTML attributes or TeX.
+export const inlineMath=s=>s;
 const steps=items=>`<ol class="math-steps">${items.map(([h,p])=>`<li><h3>${h}</h3><p>${inlineMath(p)}</p></li>`).join('')}</ol>`;
 const aside=(title,s)=>`<div class="insight"><span class="insight-symbol">∴</span><p><strong>${title}</strong>${inlineMath(s)}</p></div>`;
 const more=(title,s)=>`<details class="extension"><summary>${title}</summary><div class="detail-body">${inlineMath(s)}</div></details>`;
@@ -38,7 +56,7 @@ export const arrigo2Notes=[
  ['Usa un ansatz con honestidad','El libro ensaya ξ=A(x), η=B(x)y para F=y/x+x²/(x+y). Tras separar potencias de y resulta B=A′+A/x, A″=0 y A′=0. Se obtiene A=c, B=c/x. Esto encuentra una familia dentro del ansatz; no demuestra que sean todas las simetrías posibles.'],
  ['Comprueba que la reducción sea útil','La característica η−ξF mide si Γ cruza las curvas solución. Un campo tangente a ellas puede satisfacer Lie, pero entonces la coordenada invariante queda constante a lo largo de cada solución y no sirve para parametrizarla como s(r).']
  ],formula(lines([text('ηₓ + (ηᵧ−ξₓ)F'),text('− ξᵧF² − ξFₓ − ηFᵧ = 0')]),'Condición de invariancia de Lie'),
- more('Ejercicio guiado: traslación vertical','<p>Prueba Γ=∂y: ξ=0, η=1. Todos sus derivados son cero, así que el residuo es −Fᵧ. La traslación vertical es simetría si F no depende de y. Para y′=xy³ falla; en y=0 el residuo puntual es cero, pero eso no prueba una identidad.</p>')),
+ aside('Errata en la p. 26.','El cierre del ejemplo 2.11 imprime Y=cx/y. Como Y=B(x)y y B=c/x, la expresión correcta es Y=cy/x. Sustituirla en la condición de Lie confirma la identidad.')+more('Ejercicio guiado: traslación vertical','<p>Prueba Γ=∂y: ξ=0, η=1. Todos sus derivados son cero, así que el residuo es −Fᵧ. La traslación vertical es simetría si F no depende de y. Para y′=xy³ falla; en y=0 el residuo puntual es cero, pero eso no prueba una identidad.</p>')),
  note('La simetría de una EDO lineal consiste en sumar una solución de su ecuación homogénea. El factor integrante convierte esa suma variable en una traslación constante.',[
  ['Construye el factor integrante','Para y′+P(x)y=Q(x), toma μ=e^{∫P dx}. Entonces (μy)′=μQ. Una constante multiplicativa no nula en μ solo cambia la normalización.'],
  ['Lee el generador','Busca ξ=0, η=η(x). Lie exige η′+Pη=0, así que η=1/μ. El flujo es x̄=x, ȳ=y+ε/μ(x); no es una traslación vertical uniforme cuando P varía o es distinto de cero.'],
@@ -70,7 +88,7 @@ export const arrigo2Notes=[
  ['Distingue dos conservaciones','I es constante a lo largo de una solución, pero ΓI=10I. El flujo x̄=e^{3ε}x, ȳ=e^{4ε}y lleva K a e^{10ε}K. En cambio ΓΦ=1. Una integral primera de la EDO no tiene por qué ser un invariante del grupo.'],
  ['Revisa las singularidades del factor','μ excluye x=0, y=0 y 2x⁴=y³. Para x≠0, y=0 y y=2^{1/3}|x|^{4/3} resuelven la forma original y se recuperan como K=0. N=0 puede representar una tangente vertical: la forma diferencial sigue teniendo sentido aunque y′=−M/N no.']
  ],formula(mi('μ')+mo('=')+frac(mn('1'),mi('Mξ')+mo('+')+mi('Nη'))+mo(',')+mi('Φ')+mo('=')+frac(mn('1'),mn('10'))+text(' ln|I|'),'Factor integrante uno sobre M xi más N eta; potencial un décimo logaritmo de valor absoluto de I'),
- more('Ejercicio guiado: factores no únicos','<p>Si μω=dΦ, entonces f(Φ)μω=dH(Φ), donde H′=f. Hay muchos factores integrantes. La exactitud es local; en un dominio con agujeros, una forma cerrada no tiene por qué admitir una primitiva global.</p>')),
+ aside('Lectura de las pp. 34–35.','En la p. 34, la definición de M omite el factor y que sí aparece en (2.73): M=2x⁴y+y⁴. Al integrar, el libro absorbe el factor constante 5 del denominador de μ y escribe Φ=(1/2)ln|I|. Aquí mantenemos μ=1/(Mξ+Nη), por lo que Φ=(1/10)ln|I| y ΓΦ=1. Ambas normalizaciones dan las mismas curvas I=K.')+more('Ejercicio guiado: factores no únicos','<p>Si μω=dΦ, entonces f(Φ)μω=dH(Φ), donde H′=f. Hay muchos factores integrantes. La exactitud es local; en un dominio con agujeros, una forma cerrada no tiene por qué admitir una primitiva global.</p>')),
  note('Para una Riccati y′=P(x)y²+Q(x)y+R(x), conocer una solución particular y₁ abre la puerta a una ecuación lineal. Encontrar y₁ puede seguir siendo la parte difícil.',[
  ['Desplaza la solución conocida','Pon q=y−y₁ y A=2Py₁+Q. Como y₁ satisface la EDO, q′=Aq+Pq². El término independiente desaparece.'],
  ['Toma el recíproco','Para q≠0, w=1/q cumple w′+Aw=−P. Es una ecuación lineal. La solución q=0, es decir y=y₁, queda fuera de esta sustitución y debe conservarse.'],
@@ -81,7 +99,7 @@ export const arrigo2Notes=[
  more('Práctica resuelta: verifica y₁','<p>Sustituye y=eˣ: e⁻ˣe²ˣ+2eˣ−2eˣ=eˣ=y′. Si eligieras y₁=0, el término −2eˣ no desaparecería; la reducción basada en una “particular” incorrecta fallaría.</p>')),
  note('Una ecuación de orden n relaciona x,y y sus derivadas hasta y⁽ⁿ⁾. El espacio de jets guarda esas derivadas como coordenadas independientes antes de imponer la ecuación.',[
  ['Distingue parcial y total','Dₓ=∂x+p∂y+q∂p+z∂q+⋯, con p=y′, q=y″, z=y‴. Al derivar una función a lo largo de una curva, también varían y,p,q. Por ejemplo Dₓ(xy)=y+xp.'],
- ['Prolonga por recurrencia','Parte de η⁽⁰⁾=η. Para k≥1, η⁽ᵏ⁾=Dₓη⁽ᵏ⁻¹⁾−y⁽ᵏ⁾Dₓξ. El término final corrige el cambio de la variable independiente. Γ⁽ⁿ⁾=Γ+Ση⁽ᵏ⁾∂/∂y⁽ᵏ⁾.'],
+ ['Prolonga por recurrencia',`Parte de η⁽⁰⁾=η. Para k≥1, η⁽ᵏ⁾=Dₓη⁽ᵏ⁻¹⁾−y⁽ᵏ⁾Dₓξ. El término final corrige el cambio de la variable independiente. ${tex(String.raw`\Gamma^{(n)}=\Gamma+\sum_{k=1}^{n}\eta^{(k)}\frac{\partial}{\partial y^{(k)}}`)}.`],
  ['Comprueba la escala','Para ξ=ax, η=by, η⁽ᵏ⁾=(b−ka)y⁽ᵏ⁾. El flujo finito da ȳ⁽ᵏ⁾=e^{(b−ka)ε}y⁽ᵏ⁾. Cada derivación resta un peso a. No todas las derivadas cambian como y.'],
  ['Ensaya un movimiento menos trivial','Para Γ=y∂x, η⁽¹⁾=−p², η⁽²⁾=−3pq y η⁽³⁾=−4pz−3q². El flujo x̄=x+εy, ȳ=y requiere 1+εp≠0 para mantener x̄ como variable independiente local.'],
  ['Aplica la condición al orden adecuado','Si Δ=y″−F(x,y,p), exige Γ⁽²⁾Δ=0 después de sustituir y″=F. No pongas p=F: esa sustitución corresponde a primer orden. Separar potencias de p genera las ecuaciones determinantes.']
