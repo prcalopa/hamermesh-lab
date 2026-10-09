@@ -19,6 +19,13 @@ test('Condición de Lie: pesos correctos, contraejemplo y Riccati',()=>{
  }
  for(const [x,y] of [[.7,.2],[1.4,-1.1]])close(M.lieResidual((x,y)=>y*y-y/x-1/x**2,(x,y)=>y/x**2+2/x**3,(x,y)=>2*y-1/x,x,-y,1,0,0,-1,x,y),0);
 });
+test('Ejemplo 2.11: el cociente correcto del generador es y/x',()=>{
+ const F=(x,y)=>y/x+x*x/(x+y),Fx=(x,y)=>-y/(x*x)+(x*x+2*x*y)/(x+y)**2,Fy=(x,y)=>1/x-x*x/(x+y)**2;
+ for(const [x,y] of [[.7,.4],[1.6,-.5],[2.1,1.3]]){
+  close(M.lieResidual(F,Fx,Fy,1,y/x,0,0,-y/(x*x),1/x,x,y),0);
+  assert.ok(Math.abs(M.lieResidual(F,Fx,Fy,1,x/y,0,0,1/y,-x/(y*y),x,y))>.1);
+ }
+});
 test('Lineal y Bernoulli: soluciones, flujos, coordenadas y excepciones',()=>{
  for(const x of [.4,1,2])for(const l of [.4,1,2]){const y=M.linear(x,2,l);close(d(t=>M.linear(t,2,l),x)+l*y,x);close(Math.exp(l*x)*(M.linear(x,2.3,l)-y),.3);}
  for(const x of [.5,1,2])for(const sign of [-1,1]){
@@ -95,5 +102,5 @@ test('Fuerza central: aceleraciones, momento angular, energía y rotación',()=>
 });
 test('Cobertura del capítulo: doce secciones y 48 preguntas razonadas',()=>{
  assert.equal(arrigo2Lessons.length,12);assert.equal(arrigo2Notes.length,12);assert.equal(arrigo2Quizzes.flat().length,48);
- assert.equal(arrigo2Lessons[11].reference,'2.7.2');for(const s of arrigo2Notes){assert.ok(s.includes('<math'));assert.ok(s.length>1500);}
+ assert.equal(arrigo2Lessons[11].reference,'2.7.2');for(const s of arrigo2Notes){assert.ok(s.includes('data-tex='));assert.ok(s.length>1500);}
 });
