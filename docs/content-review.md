@@ -1,5 +1,35 @@
 # Revisión de contenido y notación · 9 de octubre de 2026
 
+## Hamermesh · capítulo 3 · ampliación del 14 de octubre de 2026
+
+Fuente: extracto local `T2___Hamermesh___Group_theory_and_its_application_to_physical_problems___3.pdf`, 47 páginas, correspondientes a las páginas impresas 68–114. Se utilizó OCR porque la codificación de las fuentes impide una extracción textual fiable; las identidades centrales y los encabezados se contrastaron visualmente con el PDF. No se publica el PDF. La guía ofrece apuntes originales, prácticas desarrolladas, 19 laboratorios y 57 preguntas en español, siguiendo todos los apartados 3-1 a 3-19; no constituye una traducción íntegra.
+
+| Apartado | Páginas impresas | Revisión y alcance del laboratorio |
+| --- | --- | --- |
+| 3-1 | 68–70 | Cierre de polinomios de grado a lo sumo dos; se distingue la restricción numérica real del espacio complejo teórico. |
+| 3-2 | 70–71 | Dependencia mediante determinante; independencia exacta frente a sensibilidad cerca de singularidad. |
+| 3-3 | 71–75 | Bases por columnas: v=Bc, B′=BS, c′=S⁻¹c. Es una convención explícita de la guía. |
+| 3-4 | 74–77 | A′=S⁻¹AS; imagen reconstruida y traza comprobadas. La misma S sirve para todo el grupo. |
+| 3-5 | 77–79 | D₃ en cinco representaciones: A₁,A₂,E,permutación y regular. 36 productos por representación e inversas verificados; fidelidad no se confunde con irreducibilidad. |
+| 3-6 | 79–80 | Caracteres invariantes por similitud y constantes en clases; pesos de clase 1,2,3. |
+| 3-7 | 80–86 | Construcción por pullback O_gf(x)=f(g⁻¹x); suma directa por bloques, no suma entrada a entrada. |
+| 3-8 | 86–88 | H=aI+bJ y ruptura controlada en base adaptada; doblete protegido frente a coincidencia accidental con singlete. |
+| 3-9 | 88–91 | Producto escalar antilineal en el primer argumento; métrica positiva definida y Gram–Schmidt. |
+| 3-10 | 91–92 | Adjunto del operador A♯=M⁻¹A†M; se distingue de la conjugación transpuesta en base oblicua. |
+| 3-11 | 92–93 | Métrica por promedio de seis elementos y Cholesky; no se extiende sin condiciones a grupos no compactos. |
+| 3-12 | 93–94 | Truncamientos geométricos en soporte finito, completación ℓ² y error de cola exacto; controles 0<q<1. |
+| 3-13 | 94–98 | P≃A₁⊕E mediante una Q ortonormal común; reducible frente a completamente reducible. |
+| 3-14 | 98–101 | Schur sobre ℂ; promedio de matrices y contraste con tr(X)I/2; se da contraejemplo al traslado indiscriminado a ℝ. |
+| 3-15 | 101–104 | Ortogonalidad de las cuatro funciones de entrada de E y de los tres caracteres; las fórmulas generales retienen conjugados aunque los ejemplos sean reales. |
+| 3-16 | 104–106 | Multiplicidades de caracteres conocidos, norma y criterio de irreducibilidad; se distingue de fidelidad. |
+| 3-17 | 106–111 | Regular de dimensión seis, multiplicidades (1,1,2), suma de cuadrados y enumeración de productos de clases; coeficientes por elemento y no por total de clase. |
+| 3-18 | 111–113 | Proyectores centrales y operadores de fila verificados por sus identidades; el central selecciona todas las copias de un tipo. |
+| 3-19 | 114 | Producto externo de grupos distintos frente a restricción diagonal. E⊠E irreducible en D₃×D₃ se vuelve A₁⊕A₂⊕E al restringir. |
+
+Validación: 51 pruebas automatizadas del proyecto pasan. Se recorrieron las 57 vistas nuevas a 1440, 390 y 320 px (171 verificaciones de página), sin contenido vacío, desbordamiento horizontal global, fórmulas con `data-math-error`/errores KaTeX ni coordenadas SVG no finitas. Se probaron 174 selecciones y extremos de controles sin errores de consola. Se inspeccionaron capturas de la reducción matricial en escritorio y los proyectores en móvil. Las tablas y fórmulas grandes admiten desplazamiento dentro de su contenedor.
+
+---
+
 ## Ampliación Cantwell · 14 de octubre de 2026
 
 Se incorporaron los capítulos 1 y 2 de *Introduction to Symmetry Analysis*, Brian J. Cantwell, a partir del extracto local de 54 páginas. Se consultó también la copia con texto seleccionable alojada por el autor en Stanford: https://web.stanford.edu/~cantwell/SymmetryAnalysisSoftware/Introduction%20to%20Symmetry%20Analysis%20-%20Brian%20Cantwell.pdf . Las referencias de la web corresponden al extracto local (página PDF igual a página impresa), no a la paginación de la copia completa. No se publica ningún PDF. El capítulo 5 se excluyó por indicación del usuario.
