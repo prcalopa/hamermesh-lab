@@ -1,6 +1,6 @@
 # Cuaderno de física · Biblioteca del máster
 
-Portal de estudio en español, organizado por material, capítulo y sección. Incluye dos capítulos de Hamermesh y los capítulos 1 y 2 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. La biblioteca ofrece 33 secciones interactivas y 120 preguntas razonadas.
+Portal de estudio en español, organizado por material, capítulo y sección. Incluye dos capítulos de Hamermesh y los capítulos 1 y 2 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1 y 2 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. La biblioteca ofrece 51 secciones interactivas y 174 preguntas razonadas.
 
 Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicaciones, gráficos y preguntas se redactan para esta guía; los PDF y las páginas escaneadas no se distribuyen en la web. El portal es estático. KaTeX 0.19.0 y sus fuentes se sirven desde el propio repositorio, sin CDN ni servicios externos para las fórmulas. Las respuestas solo se conservan mientras la página está abierta, separadas por material, capítulo y sección.
 
@@ -10,6 +10,9 @@ Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicac
 - **Hamermesh, capítulo 2:** diez laboratorios y 30 preguntas sobre operaciones espaciales, ejes, grupos axiales, redes/Miller, poliedros, reflexiones, grupos completos, 32 grupos cristalográficos y simetría clásica de colores. Páginas impresas 32–67, PDF 38–73.
 - **Arrigo, capítulo 1:** cuatro secciones y 21 preguntas. Incluye círculo y dilataciones, un invariante racional, composición de flujos, campos de pendientes y regla de la cadena, prueba de invariancia y un contraejemplo, y tres reducciones con gráficos enlazados en (x,y) y (r,s), parámetros y derivación en cuatro pasos. Los apuntes añaden tres prácticas desarrolladas, comparación con Riccati clásica y recuperación de soluciones excluidas.
 - **Arrigo, capítulo 2:** doce laboratorios y 48 preguntas sobre infinitesimales/coordenadas canónicas, condición de Lie, EDO lineales, Bernoulli, homogéneas, exactas y Riccati, operadores/prolongaciones, segundo orden, Blasius, sistemas de primer orden y fuerza central. Páginas impresas 15–72, PDF 31–88. Cada laboratorio tiene apuntes con derivaciones y una práctica guiada. Los modelos incluyen solución exacta frente a aproximación tangente, búsqueda de pesos, gráficos enlazados, contornos implícitos, jets, reducción a s″=1, disparo numérico y órbitas rotables.
+
+- **Cantwell, capítulo 1:** nueve secciones y 27 preguntas sobre simetrías e idealización, D₆, covariancia, grupos continuos, transformación de pendientes, EDO invariante, difusión, soluciones no lineales y pesos de Navier–Stokes/Stokes/Euler. Páginas impresas y PDF del extracto 1–32. Se corrige la normalización de la ec. (1.35): U(ζ)=erfc(ζ/2).
+- **Cantwell, capítulo 2:** nueve secciones y 27 preguntas sobre acción dimensional, rango/núcleo y Buckingham Π, dos cuerpos, arrastre de esfera, régimen de Stokes, Mach, escalas omitidas, capilaridad, gotas, contacto elástico y modelos de remo. Páginas impresas y PDF del extracto 33–54. Los modelos distinguen los resultados dimensionales de las hipótesis dinámicas.
 
 ## Abrir localmente
 
@@ -41,6 +44,8 @@ Si necesita laboratorios propios, añade un módulo con una función que reciba 
 - `dist/math.mjs`, `dist/vendor/katex/`: renderizado unificado de TeX, adaptación de notación heredada y KaTeX con licencia MIT.
 - `tests/symmetry.test.mjs`, `tests/lie.test.mjs`, `tests/arrigo2.test.mjs`, `tests/math.test.mjs`: verificaciones matemáticas y de notación.
 - `docs/content-review.md`: contraste por sección con los originales, erratas, convenciones y alcance de los modelos.
+
+- `dist/cantwell-content.mjs`, `dist/cantwell.mjs`, `dist/cantwell-math.mjs`: lectura en español, 18 laboratorios calculados y sus modelos; `tests/cantwell.test.mjs`: pruebas independientes de invariantes, transformaciones y soluciones.
 
 ## Escribir matemáticas y mantener la interfaz
 
@@ -74,7 +79,7 @@ Blasius usa la normalización y‴+yy″=0, Runge–Kutta de cuarto orden con pa
 node --test tests/*.test.mjs
 ```
 
-Las 33 comprobaciones cubren órdenes, cierre, clases, ortogonalidad, poliedros, familias axiales, redes y colores de Hamermesh; identidad, composición e inversos de flujos; invariantes geométricos; regla de la cadena e invariancia de EDO; cambios de coordenadas, integración y soluciones excluidas. El capítulo 2 comprueba factores integrantes, ocho generadores de segundo orden, prolongaciones, reducción, convergencia del disparo de Blasius, escala temporal y conservación de momento angular/energía. El catálogo comprueba capítulos y preguntas completos.
+Las comprobaciones de los materiales anteriores cubren órdenes, cierre, clases, ortogonalidad, poliedros, familias axiales, redes y colores de Hamermesh; identidad, composición e inversos de flujos; invariantes geométricos; regla de la cadena e invariancia de EDO; cambios de coordenadas, integración y soluciones excluidas. El capítulo 2 comprueba factores integrantes, ocho generadores de segundo orden, prolongaciones, reducción, convergencia del disparo de Blasius, escala temporal y conservación de momento angular/energía. El catálogo comprueba capítulos y preguntas completos.
 
 La revisión en navegador recorre las 99 vistas de lectura/laboratorio/práctica a 1440, 390 y 320 px (297 comprobaciones de página), además de 1129 interacciones de los materiales con selectores, extremos de controles, botones y respuestas. Comprueba errores de JavaScript y renderizado matemático, desbordamiento y coordenadas SVG inválidas; también el índice móvil, Escape, copia de TeX, respuestas y enlaces antiguos. Se revisan capturas de los gráficos y los apuntes. La integración opcional existente con document.modelContext para el triángulo se conserva; no es necesaria para usar la web.
 
@@ -92,3 +97,7 @@ bash scripts/deploy-github-pages.sh
 El script comprueba las matemáticas y publica una instantánea de la web, con actualizaciones normales sin forzar la historia. GitHub Pages debe configurarse en Settings → Pages con Source **Deploy from a branch**, rama **gh-pages** y carpeta **/(root)**. Los módulos, estilos y enlaces usan rutas relativas, compatibles con la subcarpeta del proyecto.
 
 La publicación de este repositorio usa GitHub Pages con acceso público. Los PDF quedan excluidos por `.gitignore` y no forman parte de la historia del repositorio. El comando de publicación no cambia la visibilidad del repositorio ni activa Pages por su cuenta.
+
+## Revisión de Cantwell · 14 de octubre de 2026
+
+Se añadieron únicamente los capítulos 1 y 2 solicitados. El capítulo 5 no forma parte de esta ampliación. Los apuntes son una adaptación didáctica original, con prácticas desarrolladas; no son una traducción íntegra. La revisión anterior de 99 vistas corresponde a Hamermesh/Arrigo. La revisión específica de las 54 vistas de Cantwell y de sus controles se documenta en `docs/content-review.md`.
