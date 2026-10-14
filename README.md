@@ -1,6 +1,6 @@
 # Cuaderno de física · Biblioteca del máster
 
-Portal de estudio en español, organizado por material, capítulo y sección. Incluye dos capítulos de Hamermesh y los capítulos 1 y 2 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1 y 2 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. La biblioteca ofrece 51 secciones interactivas y 174 preguntas razonadas.
+Portal de estudio en español, organizado por material, capítulo y sección. Incluye tres capítulos de Hamermesh y los capítulos 1 y 2 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1 y 2 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. La biblioteca ofrece 70 secciones interactivas y 231 preguntas razonadas.
 
 Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicaciones, gráficos y preguntas se redactan para esta guía; los PDF y las páginas escaneadas no se distribuyen en la web. El portal es estático. KaTeX 0.19.0 y sus fuentes se sirven desde el propio repositorio, sin CDN ni servicios externos para las fórmulas. Las respuestas solo se conservan mientras la página está abierta, separadas por material, capítulo y sección.
 
@@ -13,6 +13,8 @@ Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicac
 
 - **Cantwell, capítulo 1:** nueve secciones y 27 preguntas sobre simetrías e idealización, D₆, covariancia, grupos continuos, transformación de pendientes, EDO invariante, difusión, soluciones no lineales y pesos de Navier–Stokes/Stokes/Euler. Páginas impresas y PDF del extracto 1–32. Se corrige la normalización de la ec. (1.35): U(ζ)=erfc(ζ/2).
 - **Cantwell, capítulo 2:** nueve secciones y 27 preguntas sobre acción dimensional, rango/núcleo y Buckingham Π, dos cuerpos, arrastre de esfera, régimen de Stokes, Mach, escalas omitidas, capilaridad, gotas, contacto elástico y modelos de remo. Páginas impresas y PDF del extracto 33–54. Los modelos distinguen los resultados dimensionales de las hipótesis dinámicas.
+
+- **Hamermesh, capítulo 3:** 19 laboratorios y 57 preguntas que siguen §§ 3-1 a 3-19: espacios vectoriales, bases, representaciones, caracteres, suma directa, Hamiltoniano, métricas, adjuntos, unitarización, Hilbert, reducibilidad, Schur, ortogonalidad, multiplicidades, representación regular, álgebra de clases, proyectores y productos directos. Páginas impresas 68–114, PDF del extracto 1–47. Las afirmaciones generales de caracteres e irreducibilidad se formulan sobre ℂ; se indican las hipótesis de finitud, las convenciones de base y las limitaciones de los ejemplos reales.
 
 ## Abrir localmente
 
@@ -101,3 +103,7 @@ La publicación de este repositorio usa GitHub Pages con acceso público. Los PD
 ## Revisión de Cantwell · 14 de octubre de 2026
 
 Se añadieron únicamente los capítulos 1 y 2 solicitados. El capítulo 5 no forma parte de esta ampliación. Los apuntes son una adaptación didáctica original, con prácticas desarrolladas; no son una traducción íntegra. La revisión anterior de 99 vistas corresponde a Hamermesh/Arrigo. La revisión específica de las 54 vistas de Cantwell y de sus controles se documenta en `docs/content-review.md`.
+
+## Ampliación Hamermesh 3 · 14 de octubre de 2026
+
+`dist/chapter3-content.mjs` contiene las lecturas y preguntas; `dist/chapter3.mjs`, los 19 laboratorios; `dist/chapter3-math.mjs`, los modelos matriciales; `tests/chapter3.test.mjs`, las verificaciones algebraicas independientes. Esta ampliación no publica el PDF. La referencia de páginas PDF utiliza el extracto específico del capítulo 3, no el PDF de los capítulos anteriores.
