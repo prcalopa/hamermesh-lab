@@ -1,0 +1,42 @@
+import {multiply,permutations} from './algebra.mjs';
+export {multiply};
+export const identity=n=>Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>i===j?1:0));
+export const transpose=A=>A[0].map((_,j)=>A.map(row=>row[j]));
+export const mm=(A,B)=>A.map(row=>B[0].map((_,j)=>row.reduce((sum,v,k)=>sum+v*B[k][j],0)));
+export const mv=(A,x)=>A.map(row=>row.reduce((sum,v,i)=>sum+v*x[i],0));
+export const scale=(A,t)=>A.map(row=>row.map(v=>v*t));
+export const add=(A,B)=>A.map((row,i)=>row.map((v,j)=>v+B[i][j]));
+export const trace=A=>A.reduce((sum,row,i)=>sum+row[i],0);
+export const norm=x=>Math.hypot(...x);
+export const dot=(x,y)=>x.reduce((s,v,i)=>s+v*y[i],0);
+export const error=(A,B)=>Math.max(...A.flatMap((row,i)=>row.map((v,j)=>Math.abs(v-B[i][j]))));
+export function inverse(A){let n=A.length,B=A.map((row,i)=>[...row,...identity(n)[i]]);for(let j=0;j<n;j++){let p=j;for(let i=j+1;i<n;i++)if(Math.abs(B[i][j])>Math.abs(B[p][j]))p=i;if(Math.abs(B[p][j])<1e-12)return null;[B[j],B[p]]=[B[p],B[j]];const d=B[j][j];B[j]=B[j].map(x=>x/d);for(let i=0;i<n;i++)if(i!==j){const q=B[i][j];B[i]=B[i].map((x,k)=>x-q*B[j][k]);}}return B.map(row=>row.slice(n));}
+export const rotation=t=>[[Math.cos(t),-Math.sin(t)],[Math.sin(t),Math.cos(t)]];
+const reflection=[[1,0],[0,-1]];
+export const E=Array.from({length:6},(_,g)=>g<3?rotation(2*Math.PI*g/3):mm(rotation(2*Math.PI*(g-3)/3),reflection));
+export const P=permutations.map(p=>Array.from({length:3},(_,i)=>p.map(v=>v===i?1:0)));
+export const regular=Array.from({length:6},(_,g)=>Array.from({length:6},(_,i)=>Array.from({length:6},(_,j)=>multiply(g,j)===i?1:0)));
+export const irreps=[{id:'A1',dimension:1,characters:[1,1,1]},{id:'A2',dimension:1,characters:[1,1,-1]},{id:'E',dimension:2,characters:[2,-1,0]}];
+export const classSizes=[1,2,3],classes=[[0],[1,2],[3,4,5]];
+export const innerChars=(a,b)=>a.reduce((s,v,i)=>s+classSizes[i]*v*b[i],0)/6;
+export const decompose=chars=>irreps.map(ir=>innerChars(chars,ir.characters));
+export const summedCharacters=m=>[0,1,2].map(i=>irreps.reduce((s,ir,j)=>s+m[j]*ir.characters[i],0));
+export const directSum=(A,B)=>Array.from({length:A.length+B.length},(_,i)=>Array.from({length:A.length+B.length},(_,j)=>i<A.length&&j<A.length?A[i][j]:i>=A.length&&j>=A.length?B[i-A.length][j-A.length]:0));
+export const kron=(A,B)=>A.flatMap(row=>B.map(brow=>row.flatMap(v=>brow.map(w=>v*w))));
+export const changeBasis=(A,S)=>mm(mm(inverse(S),A),S);
+export const skewBasis=t=>[[1,t],[0,1]];
+export const invariantMetric=Ds=>scale(Ds.reduce((sum,D)=>add(sum,mm(transpose(D),D)),scale(identity(Ds[0].length),0)),1/Ds.length);
+export const twirl=(X,Ds=E)=>scale(Ds.reduce((sum,D)=>add(sum,mm(mm(D,X),inverse(D))),scale(identity(X.length),0)),1/Ds.length);
+export const Q=[[1/Math.sqrt(3),2/Math.sqrt(6),0],[1/Math.sqrt(3),-1/Math.sqrt(6),1/Math.sqrt(2)],[1/Math.sqrt(3),-1/Math.sqrt(6),-1/Math.sqrt(2)]];
+export const blockPermutation=g=>mm(mm(transpose(Q),P[g]),Q);
+export const projectors=irreps.map(ir=>scale(P.reduce((sum,D,g)=>add(sum,scale(D,ir.characters[g===0?0:g<3?1:2])),scale(identity(3),0)),ir.dimension/6));
+export const matrixProjector=(i,j)=>scale(P.reduce((sum,D,g)=>add(sum,scale(D,E[g][i][j])),scale(identity(3),0)),2/6);
+export const classProduct=(i,j)=>{const counts=Array(6).fill(0);for(const a of classes[i])for(const b of classes[j])counts[multiply(a,b)]++;return {counts,coefficients:classes.map(c=>counts[c[0]])};};
+export const geometricTail=(q,N)=>Math.pow(q,N)/Math.sqrt(1-q*q);
+export const geometricPartialNorm=(q,N)=>Math.sqrt((1-Math.pow(q,2*N))/(1-q*q));
+export const gram=B=>mm(transpose(B),B);
+export function choleskyUpper(M){const a=Math.sqrt(M[0][0]),b=M[0][1]/a,c=Math.sqrt(M[1][1]-b*b);return [[a,b],[0,c]];}
+export const metricAdjoint=(A,M)=>mm(mm(inverse(M),transpose(A)),M);
+export const hamiltonian=(a,b,delta=0)=>mm(mm(Q,[[a+3*b,0,0],[0,a+delta,0],[0,0,a-delta]]),transpose(Q));
+export function gramSchmidt(B){const cols=transpose(B),out=[];for(const v of cols){let w=v.slice();for(const u of out){const a=dot(w,u);w=w.map((x,i)=>x-a*u[i]);}const n=norm(w);if(n<1e-10)return null;out.push(w.map(x=>x/n));}return transpose(out);}
+export const representation=(type,g)=>type==='E'?E[g]:type==='P'?P[g]:type==='regular'?regular[g]:type==='A2'?[[g<3?1:-1]]:[[1]];
