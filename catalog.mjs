@@ -3,6 +3,7 @@ import {arrigo2Lessons,arrigo2Notes,arrigo2Quizzes} from './arrigo2-content.mjs'
 import {notes,quizzes} from './content.mjs';
 import {chapter2Lessons,chapter2Notes,chapter2Quizzes} from './chapter2-content.mjs';
 import {cantwell1Lessons,cantwell1Notes,cantwell1Quizzes,cantwell2Lessons,cantwell2Notes,cantwell2Quizzes} from './cantwell-content.mjs';
+import {chapter3Lessons,chapter3Notes,chapter3Quizzes} from './chapter3-content.mjs';
 export const hamermeshLessons=[
  {title:'Correspondencias y transformaciones',nav:'Transformaciones',pages:'1–6',desc:'Una transformación cambia la posición de los objetos. Componer significa aplicar una y después otra.'},
  {title:'Grupos: definiciones y ejemplos',nav:'Qué es un grupo',pages:'6–15',desc:'Un conjunto y una operación. Cuatro condiciones que permiten combinar y deshacer sus elementos.'},
@@ -19,7 +20,8 @@ export const materials=[
  ]},
  {id:'hamermesh',shortTitle:'Hamermesh · Grupos',author:'M. Hamermesh',title:'Teoría de grupos y simetría',original:'Group Theory and Its Application to Physical Problems',area:'Métodos matemáticos',description:'De las operaciones de un triángulo a los grupos del espacio, los cristales y los poliedros.',accent:'groups',chapters:[
   {id:1,shortTitle:'Teoría de grupos',title:'Elementos de teoría de grupos',lessons:hamermeshLessons,notes,quizzes,renderer:'groups',pages:'1–31',pdfPages:'7–37',reference:'§§ 1-1 a 1-7',thread:'Un triángulo.<br>Seis operaciones.<br>Siete ideas conectadas.',symbol:'D₃ ≅ S₃'},
-  {id:2,shortTitle:'Simetría espacial',title:'Grupos de simetría',lessons:chapter2Lessons,notes:chapter2Notes,quizzes:chapter2Quizzes,renderer:'space',pages:'32–67',pdfPages:'38–73',reference:'§§ 2-1 a 2-10',thread:'Del espacio al plano.<br>De una operación al grupo.<br>Diez ideas conectadas.',symbol:'det A = ±1'}
+  {id:2,shortTitle:'Simetría espacial',title:'Grupos de simetría',lessons:chapter2Lessons,notes:chapter2Notes,quizzes:chapter2Quizzes,renderer:'space',pages:'32–67',pdfPages:'38–73',reference:'§§ 2-1 a 2-10',thread:'Del espacio al plano.<br>De una operación al grupo.<br>Diez ideas conectadas.',symbol:'det A = ±1'},
+  {id:3,shortTitle:'Representaciones',title:'Representaciones de grupos',lessons:chapter3Lessons,notes:chapter3Notes,quizzes:chapter3Quizzes,renderer:'representations',pages:'68–114',pdfPages:'1–47 del extracto del capítulo 3',reference:'§§ 3-1 a 3-19',thread:'Representa una simetría.<br>Separa sus bloques.<br>Clasifica los estados.',symbol:'χ(g)=tr D(g)',symbolTex:String.raw`\chi(g)=\operatorname{tr}D(g)`}
  ]},
  {id:'arrigo',shortTitle:'Arrigo · Simetrías EDO',author:'Daniel J. Arrigo',title:'Simetrías de ecuaciones diferenciales',original:'Symmetry Analysis of Differential Equations: An Introduction',area:'Métodos matemáticos',description:'De los grupos de Lie como movimientos a la reducción de ecuaciones diferenciales y sistemas.',accent:'lie',chapters:[
   {id:1,shortTitle:'Introducción',title:'Una introducción al análisis de simetrías',lessons:arrigoLessons,notes:arrigoNotes,quizzes:arrigoQuizzes,renderer:'lie',pages:'1–14',pdfPages:'17–30',reference:'§§ 1.1–1.4 y ejercicios',thread:'Encuentra lo que se conserva.<br>Transforma las pendientes.<br>Elige nuevas coordenadas.',symbol:'r̄=r · s̄=s+ε'},
