@@ -1,5 +1,36 @@
 # Revisión de contenido y notación · 9 de octubre de 2026
 
+## Ampliación Cantwell · 14 de octubre de 2026
+
+Se incorporaron los capítulos 1 y 2 de *Introduction to Symmetry Analysis*, Brian J. Cantwell, a partir del extracto local de 54 páginas. Se consultó también la copia con texto seleccionable alojada por el autor en Stanford: https://web.stanford.edu/~cantwell/SymmetryAnalysisSoftware/Introduction%20to%20Symmetry%20Analysis%20-%20Brian%20Cantwell.pdf . Las referencias de la web corresponden al extracto local (página PDF igual a página impresa), no a la paginación de la copia completa. No se publica ningún PDF. El capítulo 5 se excluyó por indicación del usuario.
+
+La ampliación es una guía original en español: 18 secciones, 54 preguntas y prácticas desarrolladas. Los ejercicios de fin de capítulo se trabajan mediante una selección de modelos; no se reproduce ni se resuelve íntegramente toda la colección del libro.
+
+| Sección | Referencia | Comprobación y alcance |
+| --- | --- | --- |
+| Simetría e idealización | 1.1–1.2, pp. 1–4 | Perturbación polar original: O(2) se reduce a D₃; desajuste radial calculado. |
+| D₆ | 1.3, pp. 4–10 | Orden 12; producto rᵏsᶠ contrastado con las 144 composiciones de permutaciones; AB aplica B y después A. |
+| Covariancia | 1.4, pp. 10–12 | Diferencia entre acciones activas y cambios pasivos; homogeneidad no equivale a una ley física. |
+| Grupos continuos | 1.5.1–1.5.2, pp. 12–15 | Ley de grupo explícita; norma y razón como invariantes diferentes; carta x≠0. |
+| Pendiente | 1.5.2, pp. 15–16 | Regla de cadena verificada con cocientes numéricos; el jacobiano no se confunde con el denominador de la pendiente. |
+| EDO | Ej. 1.1, pp. 16–18 | y′=exp(x−y), constante C transformada por exp(s); dominio exp(x)+C>0. |
+| Difusión | Ej. 1.2, pp. 18–21 | Para ζ=x/√(κt), la ec. (1.35) se corrige a erfc(ζ/2), con coeficiente 1/√π. Se verifica EDP, contornos y colapso; erfc es una aproximación con error absoluto del orden de 1,5·10⁻⁷. Las diferencias finitas se verifican con tolerancia 10⁻⁵ por esa aproximación y el error de discretización. |
+| EDP no lineal | Ej. 1.3, pp. 21–23 | w=exp(−u/2) linealiza a wₜ=wₓₓ; se exige w>0; residuo verificado por derivadas analíticas y diferencias finitas independientes. |
+| Jets y pesos | 1.6–1.8, pp. 23–30 | Ejercicio original de pesos; se distingue Stokes no estacionario de estacionario; ρ y ν se fijan. |
+| Acción dimensional | 2.1 y 2.3, pp. 33–34, 38–40 | Matriz con columnas D,ρ,U,r,μ y filas M,L,T; factores aplicados a magnitudes según exponentes. |
+| Buckingham | 2.5–2.6, pp. 47–50 | Núcleo por Gauss; cuenta n−rango(A); base no única. Los exponentes mostrados se redondean para evitar artefactos numéricos. |
+| Kepler | 2.2, pp. 34–38 | Se distingue semieje mayor de radio de igual área √(ab). Las fórmulas de dos cuerpos aportan información que no fija Buckingham. Órbita relativa en GM=1. |
+| Arrastre | 2.3, pp. 38–41 | Re usa diámetro y C_D área frontal; D/(μUr)=(π/4)C_D Re. Controles no representan una correlación experimental. |
+| Stokes | 2.3, pp. 41–43 | C_D Re=24; condiciones de flujo lento y divergencia de normalización; no se extrapola el problema esférico al cilindro. La gráfica identifica la extrapolación fuera de Re pequeño. |
+| Mach | 2.4, pp. 44–47 | Capacidades caloríficas específicas con dimensiones L²T⁻²Θ⁻¹; Π_E=γ(γ−1)Mach² para gas ideal; no hay correlación de choques o arrastre inventada. |
+| Escalas omitidas | 2.3.1 y 2.6, pp. 43–44,49–50 | Reynolds igual no garantiza rugosidad relativa ni confinamiento iguales. |
+| Capilaridad y gotas | Ej. 2.1–2.3, pp. 50–51 | Jurin por balance perímetro/área; tiempo y velocidad de gotas son escalas, no prefactores de un modo o umbral universal. |
+| Contacto y escalado | Ej. 2.6–2.11, pp. 51–53 | Matriz de contacto de rango dos; el exponente Hertz requiere dinámica/elasticidad. Remo n¹ᐟ⁹ bajo semejanza y fricción constante; las alternativas declaran hipótesis de área, sin atribuirlas a leyes universales. |
+
+Validación específica: 40 pruebas automatizadas del proyecto pasan. Las 54 vistas nuevas se recorrieron en navegador al ancho habitual y a 390 y 320 px (162 verificaciones de página), sin vistas vacías, errores KaTeX, coordenadas SVG inválidas ni desbordamiento horizontal global. Se probaron 119 selecciones y extremos de los controles. Se inspeccionaron capturas de difusión, Buckingham en móvil y apuntes de notación. Las fórmulas largas y las tablas pueden desplazarse horizontalmente dentro de su contenedor.
+
+---
+
 Se contrastaron las 33 secciones publicadas, sus fórmulas principales, modelos y preguntas con los dos PDF locales. Las páginas siguientes son las **impresas**, no el índice del archivo PDF. Esta guía es una adaptación didáctica: sus gráficos, preguntas, variaciones de parámetros y prácticas son originales; no sustituye el desarrollo completo del libro ni reproduce todos sus ejercicios.
 
 Fuentes: Hamermesh, *Group Theory and Its Application to Physical Problems*, capítulos 1–2 (pp. 1–67; PDF 7–73), y Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*, capítulos 1–2 (pp. 1–72; PDF 17–88). Los PDF se mantienen fuera del repositorio y de la publicación.
