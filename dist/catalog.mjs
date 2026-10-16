@@ -1,3 +1,4 @@
+import {cantwell5Lessons,cantwell5Notes,cantwell5Quizzes} from './cantwell5-content.mjs';
 import {applyDepth} from './depth.mjs';
 import {arrigo3Lessons,arrigo3Notes,arrigo3Quizzes} from './arrigo3-content.mjs';
 import {arrigoLessons,arrigoNotes,arrigoQuizzes} from './arrigo-content.mjs';
@@ -18,7 +19,8 @@ export const hamermeshLessons=[
 export const materials=[
  {id:'cantwell',shortTitle:'Cantwell · Simetría y dimensiones',author:'Brian J. Cantwell',title:'Análisis de simetría y semejanza',original:'Introduction to Symmetry Analysis',area:'Métodos matemáticos · nivel avanzado',description:'De las simetrías discretas a la difusión, los grupos continuos y el análisis dimensional. Derivaciones, dominios y límites de los modelos.',accent:'cantwell',symbol:'Π',chapters:[
   {id:1,shortTitle:'Introducción a la simetría',title:'Introducción a la simetría',lessons:cantwell1Lessons,notes:cantwell1Notes,quizzes:cantwell1Quizzes,renderer:'cantwell',pages:'1–32',pdfPages:'1–32',reference:'§§ 1.1–1.8',thread:'Conserva una estructura.<br>Transforma las derivadas.<br>Reduce el problema.',symbol:'Tₛ∘Tₜ=Tₛ₊ₜ',symbolTex:String.raw`T_s\circ T_t=T_{s+t}`},
-  {id:2,shortTitle:'Análisis dimensional',title:'Análisis dimensional',lessons:cantwell2Lessons,notes:cantwell2Notes,quizzes:cantwell2Quizzes,renderer:'cantwell',pages:'33–54',pdfPages:'33–54',reference:'§§ 2.1–2.7',thread:'Elige las variables.<br>Calcula los invariantes.<br>Examina las hipótesis.',symbol:'Av=0',symbolTex:String.raw`Av=0,\quad\dim\ker A=n-r`}
+  {id:2,shortTitle:'Análisis dimensional',title:'Análisis dimensional',lessons:cantwell2Lessons,notes:cantwell2Notes,quizzes:cantwell2Quizzes,renderer:'cantwell',pages:'33–54',pdfPages:'33–54',reference:'§§ 2.1–2.7',thread:'Elige las variables.<br>Calcula los invariantes.<br>Examina las hipótesis.',symbol:'Av=0',symbolTex:String.raw`Av=0,\quad\dim\ker A=n-r`},
+  {id:5,shortTitle:'Grupos y álgebras de Lie',title:'Grupos de Lie de un parámetro',lessons:cantwell5Lessons,notes:cantwell5Notes,quizzes:cantwell5Quizzes,renderer:'cantwell5',pages:'121–148',pdfPages:'2–29 de la traducción española del capítulo 5',reference:'§§ 5.1–5.14 y ejercicios seleccionados',thread:'Del flujo al campo.<br>Del campo a los invariantes.<br>Del corchete al álgebra.',symbol:'ΓF=0',symbolTex:String.raw`\Gamma F=0,\quad[X_i,X_j]=c_{ij}^{k}X_k`}
  ]},
  {id:'hamermesh',shortTitle:'Hamermesh · Grupos',author:'M. Hamermesh',title:'Teoría de grupos y simetría',original:'Group Theory and Its Application to Physical Problems',area:'Métodos matemáticos',description:'De las operaciones de un triángulo a los grupos del espacio, los cristales y los poliedros.',accent:'groups',chapters:[
   {id:1,shortTitle:'Teoría de grupos',title:'Elementos de teoría de grupos',lessons:hamermeshLessons,notes,quizzes,renderer:'groups',pages:'1–31',pdfPages:'7–37',reference:'§§ 1-1 a 1-7',thread:'Un triángulo.<br>Seis operaciones.<br>Siete ideas conectadas.',symbol:'D₃ ≅ S₃'},
