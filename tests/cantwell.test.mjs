@@ -31,7 +31,7 @@ test('Kepler, Stokes, gas ideal y escalas capilares: relaciones físicas',()=>{
  const gamma=1.4,R=287,Tgas=300,U=350,M=mach(U,gamma,R,Tgas),cv=R/(gamma-1);close(U*U/(cv*Tgas),gamma*(gamma-1)*M*M);
  close(capillary(.072,1000,9.81,.001,Math.PI/2),0);close(dropTime(1000,.004,.072)/dropTime(1000,.001,.072),8);close(rowing(8,'similar'),Math.pow(8,1/9));
 });
-test('Cantwell: 18 secciones, 72 preguntas y referencias del extracto',()=>{
- const m=materials.find(m=>m.id==='cantwell');assert.deepEqual(m.chapters.map(c=>c.id),[1,2]);assert.equal(m.chapters.flatMap(c=>c.lessons).length,18);assert.equal(m.chapters.flatMap(c=>c.quizzes.flat()).length,72);
- for(const c of m.chapters){assert.equal(c.lessons.length,c.notes.length);assert.equal(c.notes.length,c.quizzes.length);for(const l of c.lessons){assert.ok(l.reference);assert.ok(l.lab);}for(const note of c.notes)assert.ok(note.length>1000);}
+test('Cantwell: 38 secciones, 132 preguntas y referencias del extracto',()=>{
+ const m=materials.find(m=>m.id==='cantwell');assert.deepEqual(m.chapters.map(c=>c.id),[1,2,5]);assert.equal(m.chapters.flatMap(c=>c.lessons).length,38);assert.equal(m.chapters.flatMap(c=>c.quizzes.flat()).length,132);
+ for(const c of m.chapters){assert.equal(c.lessons.length,c.notes.length);assert.equal(c.notes.length,c.quizzes.length);for(const l of c.lessons){assert.ok(l.reference);assert.ok(l.lab||c.id===5);}for(const note of c.notes)assert.ok(note.length>1000);}
 });

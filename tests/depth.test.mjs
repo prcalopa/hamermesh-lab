@@ -6,10 +6,10 @@ import {nullspace,erfc} from '../dist/cantwell-math.mjs';
 import {mm,mv,transpose,inverse,gram,E,directSum,identity,error} from '../dist/chapter3-math.mjs';
 const close=(a,b,tol=1e-6)=>assert.ok(Math.abs(a-b)<tol*Math.max(1,Math.abs(a),Math.abs(b)),`${a} != ${b}`);
 const d1=(f,x,h=1e-5)=>(f(x+h)-f(x-h))/(2*h),d2=(f,x,h=1e-3)=>(f(x+h)-2*f(x)+f(x-h))/(h*h);
-test('Ampliación completa: 70 secciones de siete capítulos y 364 preguntas totales',()=>{
+test('Ampliación completa: 70 secciones de siete capítulos y 424 preguntas totales',()=>{
  let sections=0,chapters=0;for(const m of materials)for(const c of m.chapters){const extra=extensions[m.id]?.[c.id];if(!extra)continue;chapters++;assert.equal(extra.length,c.lessons.length);sections+=extra.length;
   for(let j=0;j<extra.length;j++){const d=extra[j];assert.ok(d.intro.length>100);assert.ok(d.derivation.length>180);assert.ok(d.worked.length>200);assert.ok(c.notes[j].includes('DESARROLLO MATEMÁTICO AMPLIADO'));assert.equal(c.quizzes[j].at(-1).q,d.challenge);assert.equal(c.quizzes[j].at(-1).a[c.quizzes[j].at(-1).correct],d.quiz.a[d.quiz.correct]);}
- }assert.equal(chapters,7);assert.equal(sections,70);assert.equal(materials.flatMap(m=>m.chapters).flatMap(c=>c.quizzes).flat().length,364);
+ }assert.equal(chapters,7);assert.equal(sections,70);assert.equal(materials.flatMap(m=>m.chapters).flatMap(c=>c.quizzes).flat().length,424);
  const notes=materials[0].chapters[0].notes,qs=materials[0].chapters[0].quizzes;applyDepth(materials);assert.equal(materials[0].chapters[0].notes,notes);assert.equal(materials[0].chapters[0].quizzes,qs);
 });
 test('Nuevas soluciones de Arrigo: Bernoulli, homogénea y Riccati',()=>{
