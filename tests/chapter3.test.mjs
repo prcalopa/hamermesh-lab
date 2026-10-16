@@ -53,6 +53,6 @@ test('Productos tensoriales: composición del grupo producto y restricción diag
 test('Hilbert: la cola geométrica coincide con una suma explícita independiente',()=>{
  for(const q of [.1,.5,.9,.95])for(const N of [1,5,30]){let partial=0,tail=0;for(let k=0;k<2000;k++)if(k<N)partial+=q**(2*k);else tail+=q**(2*k);close(geometricPartialNorm(q,N)**2,partial);close(geometricTail(q,N)**2,tail);}
 });
-test('Cobertura: 19 secciones, 57 preguntas y referencias coherentes',()=>{
- const chapter=materials.find(m=>m.id==='hamermesh').chapters.find(c=>c.id===3);assert.equal(chapter.lessons.length,19);assert.equal(chapter.quizzes.flat().length,57);assert.equal(chapter.notes.length,19);chapter.lessons.forEach((l,i)=>{assert.equal(l.reference,`3-${i+1}`);assert.ok(chapter.notes[i].length>1000);});
+test('Cobertura: 19 secciones, 76 preguntas y referencias coherentes',()=>{
+ const chapter=materials.find(m=>m.id==='hamermesh').chapters.find(c=>c.id===3);assert.equal(chapter.lessons.length,19);assert.equal(chapter.quizzes.flat().length,76);assert.equal(chapter.notes.length,19);chapter.lessons.forEach((l,i)=>{assert.equal(l.reference,`3-${i+1}`);assert.ok(chapter.notes[i].length>1000);});
 });
