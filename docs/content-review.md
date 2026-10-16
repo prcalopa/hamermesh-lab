@@ -1,5 +1,22 @@
 # Revisión de contenido y notación · 9 de octubre de 2026
 
+## Arrigo, capítulo 3 · revisión del 16 de octubre de 2026
+
+Fuente: `Daniel_Arrigo_Analisis_de_Simetrias_ES.pdf`, capítulo 3, páginas originales 73–132, PDF 91–157. Se han contrastado los encabezados y las ecuaciones en las páginas renderizadas: el texto extraído no conserva muchas fórmulas, que son imágenes. La guía es una adaptación original en español, con ejercicios seleccionados y derivaciones ampliadas, sin distribuir el PDF.
+
+- §§ 3.1, pp. 73–84: prolongación, polinomio determinante de u_t=u_x², pesos, cambio canónico, dos ramas de Clairaut y superficie invariante. Se conservan la envolvente singular y los dominios temporales.
+- § 3.2.1, pp. 84–90: sistema determinante del calor; seis constantes finitas y superposición infinita, pese a la frase sobre cinco constantes de la p. 87. Perfil gaussiano, masa, integral gaussiana y flujo de Galileo con argumentos transformados.
+- §§ 3.2.2–3.2.3, pp. 91–100: Laplace radial en r=x²+y² y singularidad del origen; Burgers con viscosidad uno, frente viajero y Hopf–Cole con potencial v=-2 ln w, u=v_x. La función de calor del laboratorio es estrictamente positiva.
+- § 3.2.4, pp. 100–109: ecuación de clase de fuentes, exponencial, logarítmica y potencia. En la p. 106, la reducción logarítmica requiere un factor exp(1/2) en el ansatz para obtener la EDO impresa. Sin ese factor aparece -g/2 en la EDO; se muestran ambas convenciones y una gaussiana estacionaria verifica la corrección. El exponente general m se distingue del exponente -q usado por el libro. El laboratorio de potencia selecciona absorción y exponentes enteros; no garantiza positividad global.
+- § 3.3, pp. 109–115: KdV con coeficiente convectivo uno y amplitud de solitón 3c; reducción de semejanza y energía viajera. Boussinesq con u_tt+u u_xx+u_x²+u_xxxx=0, factores temporales y EDO de cuarto orden.
+- § 3.4, pp. 115–125: prolongación por componente, sistema v_x=u, v_t=u_x/(1+u²), compatibilidad y dos perfiles acoplados. Los dos datos iniciales son ajustables y se identifica el equilibrio. Capa límite: función de corriente, semejanza de placa plana y Blasius con coeficiente 1/2, comparado con el coeficiente uno del capítulo 2.
+- § 3.5, pp. 126–132: multiíndices, reducción de una variable sin prometer una EDO, difusión no lineal plana y radial. La solución cuadrática negativa es una identidad fuera del régimen de difusión positiva. Ecuación u_xx+u_yy+(exp u)_zz=0: potencial armónico del generador, reducción por cocientes y solución local logarítmica afín.
+
+Validación: `node --test tests/*.test.mjs`: 60 pruebas correctas. Nueve pruebas nuevas verifican residuos de EDP mediante diferencias finitas independientes, Hopf–Cole analítico, dominio, constante logarítmica, equilibrios y convergencia RK4, sistema potencial, KdV y cambio de normalización de Blasius. El renderizado KaTeX de los apuntes y cuestionarios de toda la biblioteca pasa la prueba compartida.
+
+Revisión en navegador local: 63 vistas de las 21 secciones en Explorar/Paso a paso/Practicar, sin errores de matemáticas; 21 laboratorios en los extremos superiores de sus controles, sin coordenadas SVG no finitas. Se comprobó la retroalimentación del cuestionario, el disparo de Blasius y el sistema potencial con ambos datos iniciales. Se verificó lectura a 390 px sin desbordamiento del documento (las fórmulas largas tienen desplazamiento interno), y la vista de escritorio. Los perfiles numéricos avisan si la integración se detiene antes del extremo.
+
+
 ## Hamermesh · capítulo 3 · ampliación del 14 de octubre de 2026
 
 Fuente: extracto local `T2___Hamermesh___Group_theory_and_its_application_to_physical_problems___3.pdf`, 47 páginas, correspondientes a las páginas impresas 68–114. Se utilizó OCR porque la codificación de las fuentes impide una extracción textual fiable; las identidades centrales y los encabezados se contrastaron visualmente con el PDF. No se publica el PDF. La guía ofrece apuntes originales, prácticas desarrolladas, 19 laboratorios y 57 preguntas en español, siguiendo todos los apartados 3-1 a 3-19; no constituye una traducción íntegra.
