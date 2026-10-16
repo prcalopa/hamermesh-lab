@@ -1,3 +1,4 @@
+import {arrigo3Lessons,arrigo3Notes,arrigo3Quizzes} from './arrigo3-content.mjs';
 import {arrigoLessons,arrigoNotes,arrigoQuizzes} from './arrigo-content.mjs';
 import {arrigo2Lessons,arrigo2Notes,arrigo2Quizzes} from './arrigo2-content.mjs';
 import {notes,quizzes} from './content.mjs';
@@ -23,9 +24,10 @@ export const materials=[
   {id:2,shortTitle:'Simetría espacial',title:'Grupos de simetría',lessons:chapter2Lessons,notes:chapter2Notes,quizzes:chapter2Quizzes,renderer:'space',pages:'32–67',pdfPages:'38–73',reference:'§§ 2-1 a 2-10',thread:'Del espacio al plano.<br>De una operación al grupo.<br>Diez ideas conectadas.',symbol:'det A = ±1'},
   {id:3,shortTitle:'Representaciones',title:'Representaciones de grupos',lessons:chapter3Lessons,notes:chapter3Notes,quizzes:chapter3Quizzes,renderer:'representations',pages:'68–114',pdfPages:'1–47 del extracto del capítulo 3',reference:'§§ 3-1 a 3-19',thread:'Representa una simetría.<br>Separa sus bloques.<br>Clasifica los estados.',symbol:'χ(g)=tr D(g)',symbolTex:String.raw`\chi(g)=\operatorname{tr}D(g)`}
  ]},
- {id:'arrigo',shortTitle:'Arrigo · Simetrías EDO',author:'Daniel J. Arrigo',title:'Simetrías de ecuaciones diferenciales',original:'Symmetry Analysis of Differential Equations: An Introduction',area:'Métodos matemáticos',description:'De los grupos de Lie como movimientos a la reducción de ecuaciones diferenciales y sistemas.',accent:'lie',chapters:[
+ {id:'arrigo',shortTitle:'Arrigo · Simetrías EDO y EDP',author:'Daniel J. Arrigo',title:'Simetrías de ecuaciones diferenciales',original:'Symmetry Analysis of Differential Equations: An Introduction',area:'Métodos matemáticos',description:'De los grupos de Lie como movimientos a la reducción de ecuaciones diferenciales y sistemas.',accent:'lie',chapters:[
   {id:1,shortTitle:'Introducción',title:'Una introducción al análisis de simetrías',lessons:arrigoLessons,notes:arrigoNotes,quizzes:arrigoQuizzes,renderer:'lie',pages:'1–14',pdfPages:'17–30',reference:'§§ 1.1–1.4 y ejercicios',thread:'Encuentra lo que se conserva.<br>Transforma las pendientes.<br>Elige nuevas coordenadas.',symbol:'r̄=r · s̄=s+ε'},
-  {id:2,shortTitle:'EDO y sistemas',title:'Ecuaciones diferenciales ordinarias',lessons:arrigo2Lessons,notes:arrigo2Notes,quizzes:arrigo2Quizzes,renderer:'lie2',pages:'15–72',pdfPages:'31–88',reference:'§§ 2.1–2.7 y ejercicios',thread:'Del generador al flujo.<br>Del flujo a la reducción.<br>De una EDO a un sistema.',symbol:'Γ⁽ⁿ⁾Δ | Δ=0 = 0',symbolTex:String.raw`\left.\Gamma^{(n)}\Delta\right|_{\Delta=0}=0`}
+  {id:2,shortTitle:'EDO y sistemas',title:'Ecuaciones diferenciales ordinarias',lessons:arrigo2Lessons,notes:arrigo2Notes,quizzes:arrigo2Quizzes,renderer:'lie2',pages:'15–72',pdfPages:'31–88',reference:'§§ 2.1–2.7 y ejercicios',thread:'Del generador al flujo.<br>Del flujo a la reducción.<br>De una EDO a un sistema.',symbol:'Γ⁽ⁿ⁾Δ | Δ=0 = 0',symbolTex:String.raw`\left.\Gamma^{(n)}\Delta\right|_{\Delta=0}=0`},
+  {id:3,shortTitle:'EDP y sistemas',title:'Ecuaciones en derivadas parciales',lessons:arrigo3Lessons,notes:arrigo3Notes,quizzes:arrigo3Quizzes,renderer:'lie3',pages:'73–132',pdfPages:'91–157 de la traducción española',reference:'§§ 3.1–3.5 y ejercicios seleccionados',thread:'Prolonga las derivadas.<br>Encuentra los invariantes.<br>Comprueba la reducción.',symbol:'Q=0',symbolTex:String.raw`Q=\eta-\tau u_t-\xi u_x=0`}
  ]}
 ];
 export function getMaterial(id){return materials.find(m=>m.id===id);}
