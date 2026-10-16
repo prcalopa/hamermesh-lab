@@ -1,3 +1,4 @@
+import {applyDepth} from './depth.mjs';
 import {arrigo3Lessons,arrigo3Notes,arrigo3Quizzes} from './arrigo3-content.mjs';
 import {arrigoLessons,arrigoNotes,arrigoQuizzes} from './arrigo-content.mjs';
 import {arrigo2Lessons,arrigo2Notes,arrigo2Quizzes} from './arrigo2-content.mjs';
@@ -30,4 +31,5 @@ export const materials=[
   {id:3,shortTitle:'EDP y sistemas',title:'Ecuaciones en derivadas parciales',lessons:arrigo3Lessons,notes:arrigo3Notes,quizzes:arrigo3Quizzes,renderer:'lie3',pages:'73–132',pdfPages:'91–157 de la traducción española',reference:'§§ 3.1–3.5 y ejercicios seleccionados',thread:'Prolonga las derivadas.<br>Encuentra los invariantes.<br>Comprueba la reducción.',symbol:'Q=0',symbolTex:String.raw`Q=\eta-\tau u_t-\xi u_x=0`}
  ]}
 ];
+applyDepth(materials);
 export function getMaterial(id){return materials.find(m=>m.id===id);}
