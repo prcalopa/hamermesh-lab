@@ -1,5 +1,20 @@
 # Revisión de contenido y notación · 9 de octubre de 2026
 
+## Ampliación de los siete capítulos anteriores · 16 de octubre de 2026
+
+Se amplían las 70 secciones de Arrigo 1–2, Cantwell 1–2 y Hamermesh 1–3. Cada ampliación añade un desarrollo matemático específico, un problema resuelto, condiciones de validez y una pregunta razonada. Se conservan rutas, secciones y modelos interactivos existentes. La capa nueva se integra desde `depth.mjs` sin modificar los arrays de contenido base ni duplicarse al reinicializar el catálogo. Arrigo 3 conserva su contenido publicado.
+
+Fuentes disponibles: PDF español completo de Arrigo (capítulos 1–2, pp. originales 1–72); extracto inglés Cantwell 1–2 (54 páginas); extractos ingleses Hamermesh 1–2 (73 páginas) y Hamermesh 3 (47 páginas), además del libro completo de Hamermesh ya disponible. Se ha reutilizado el contraste documentado de las versiones previas y se han revisado visualmente páginas de fórmulas y tablas para la ampliación. Los nuevos problemas y demostraciones son elaboración didáctica original, con extensiones identificadas por su propio encabezado; no se atribuyen al libro como ejercicios literales ni se promete resolver todos sus ejercicios.
+
+Arrigo: se desarrolla el carácter local del flujo, los puntos fijos y las cartas canónicas; se recuperan ramas perdidas por recíprocos o divisiones; se derivan ejemplos nuevos de Bernoulli, homogéneas y Riccati; se justifican exactitud local, pesos de jets, puntos de retorno, escala del disparo de Blasius y reconstrucción de sistemas. En fuerza central se verifica radio cuadrático y momento angular.
+
+Cantwell: se distingue conmutación de operadores de invariancia visual, covariancia de métricas, órbitas y cartas; en difusión se comprueba la cantidad integral frente al flujo de pared, y en el ejemplo no lineal la transformación logarítmica. Buckingham usa rango efectivo y cantidades positivas. Se separan conclusiones dimensionales de dinámica de Kepler y contacto, se conserva la convención radio/diámetro y se desarrolla una perturbación singular como ejemplo adicional de escala omitida.
+
+Hamermesh: se añaden pruebas de cancelación, acción regular fiel, partición por clases, centralizadores y producto de cocientes independiente del representante. En operaciones espaciales se explicita el carácter axial del eje bajo conjugación impropia, el producto semidirecto y la traza entera en una base de red. En representaciones se distinguen similitud y congruencia, base dual, conmutante sobre multiplicidades, norma del carácter, completitud, campo complejo en Schur, positividad de unitarización y sectores isotípicos frente a copias individuales.
+
+La ampliación suma 70 problemas desarrollados y 70 preguntas: total 364 preguntas en 91 secciones. Las fórmulas nuevas usan TeX explícito. Las comprobaciones numéricas de la nueva prueba incluyen sustituciones diferenciales, flujo integral de difusión, cambio de métrica, conteo del centralizador en S4, conjugaciones axiales y dimensión del conmutante de A1 más dos dobletes. Validación final: 68 pruebas correctas con `node --test tests/*.test.mjs`; 210 vistas revisadas en escritorio (Explorar/Paso a paso/Practicar de las 70 secciones), sin errores de renderizado matemático ni desbordamiento de documento; 70 vistas de apuntes comprobadas a 390 px, sin desbordamiento global. Se han probado el enlace a la derivación y la retroalimentación de una pregunta nueva; la consola no presenta errores. Los contadores publicados por el catálogo son 25/60 preguntas para Arrigo 1/2, 36/36 para Cantwell 1/2, 28/40/76 para Hamermesh 1/2/3 y 63 para Arrigo 3.
+
+
 ## Arrigo, capítulo 3 · revisión del 16 de octubre de 2026
 
 Fuente: `Daniel_Arrigo_Analisis_de_Simetrias_ES.pdf`, capítulo 3, páginas originales 73–132, PDF 91–157. Se han contrastado los encabezados y las ecuaciones en las páginas renderizadas: el texto extraído no conserva muchas fórmulas, que son imágenes. La guía es una adaptación original en español, con ejercicios seleccionados y derivaciones ampliadas, sin distribuir el PDF.
