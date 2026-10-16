@@ -1,6 +1,6 @@
 # Cuaderno de física · Biblioteca del máster
 
-Portal de estudio en español, organizado por material, capítulo y sección. Incluye tres capítulos de Hamermesh y los capítulos 1, 2 y 3 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1 y 2 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. La biblioteca ofrece 91 secciones interactivas y 364 preguntas razonadas.
+Portal de estudio en español, organizado por material, capítulo y sección. Incluye tres capítulos de Hamermesh y los capítulos 1, 2 y 3 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1, 2 y 5 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. La biblioteca ofrece 111 secciones interactivas y 424 preguntas razonadas.
 
 Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicaciones, gráficos y preguntas se redactan para esta guía; los PDF y las páginas escaneadas no se distribuyen en la web. El portal es estático. KaTeX 0.19.0 y sus fuentes se sirven desde el propio repositorio, sin CDN ni servicios externos para las fórmulas. Las respuestas solo se conservan mientras la página está abierta, separadas por material, capítulo y sección.
 
@@ -18,9 +18,11 @@ Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicac
 
 - **Arrigo, capítulo 3:** 21 laboratorios y 63 preguntas sobre §§ 3.1–3.5: prolongaciones de EDP, sistema determinante, coordenadas canónicas/Clairaut, superficie invariante, calor, Laplace, Burgers/Hopf–Cole, fuentes exponenciales/logarítmicas/potencias, KdV, Boussinesq, sistemas potenciales, capa límite y varias dimensiones. Páginas originales 73–132, PDF español 91–157. Incluye derivaciones ampliadas, dominios y ejercicios seleccionados desarrollados. Los perfiles iniciales se integran por RK4 y Blasius admite ajuste por bisección. Se explicita la constante que falta al combinar el ansatz y la EDO logarítmica de la p. 106.
 
+- **Cantwell, capítulo 5:** 20 secciones y 60 preguntas sobre funciones invariantes, grupos de un parámetro, infinitesimales, series de Lie, características, reconstrucción de flujos, grupo proyectivo, conmutadores, subálgebras, ideales, resolubilidad, Jordan/Lie y ejercicios seleccionados. Páginas originales 121–148, PDF español 2–29. Los laboratorios calculan la tabla proyectiva, cierre y series derivadas, comparan Lie de orden cuatro con RK4 y verifican invariantes de flujos racionales, helicoidales y de Lorentz. Se explicitan dominios, convenciones y correcciones de lectura.
+
 ## Desarrollo matemático ampliado
 
-Los siete capítulos anteriores a Arrigo 3 incorporan ahora una ampliación específica en cada una de sus 70 secciones: derivación con hipótesis, problema resuelto y una pregunta adicional razonada. Las rutas y los laboratorios existentes se conservan. En **Explorar** aparece una conexión con la fórmula principal y un enlace al desarrollo de **Paso a paso**. La biblioteca mantiene 91 secciones y pasa a 364 preguntas.
+Los siete capítulos anteriores a Arrigo 3 incorporan ahora una ampliación específica en cada una de sus 70 secciones: derivación con hipótesis, problema resuelto y una pregunta adicional razonada. Las rutas y los laboratorios existentes se conservan. En **Explorar** aparece una conexión con la fórmula principal y un enlace al desarrollo de **Paso a paso**. Esa ampliación añadió 70 preguntas; con Cantwell 5, la biblioteca completa tiene 111 secciones y 424 preguntas.
 
 - Arrigo 1–2: órbitas, dominio de los flujos, cartas de pendientes, transversalidad, rectificación, criterio de Lie, Bernoulli/Riccati, factores integrantes, prolongaciones, reducción de orden, Blasius, sistemas y energía radial.
 - Cantwell 1–2: conmutadores, grupo del hexágono, métrica covariante, normalización de difusión y flujo, linealización logarítmica, pesos, rango efectivo, Kepler, radio/diámetro, Stokes, Mach, perturbaciones singulares y balances capilares/contacto.
@@ -121,3 +123,5 @@ Se añadieron únicamente los capítulos 1 y 2 solicitados. El capítulo 5 no fo
 `dist/chapter3-content.mjs` contiene las lecturas y preguntas; `dist/chapter3.mjs`, los 19 laboratorios; `dist/chapter3-math.mjs`, los modelos matriciales; `tests/chapter3.test.mjs`, las verificaciones algebraicas independientes. Esta ampliación no publica el PDF. La referencia de páginas PDF utiliza el extracto específico del capítulo 3, no el PDF de los capítulos anteriores.
 
 Los módulos `dist/arrigo3-content.mjs`, `dist/arrigo3-math.mjs` y `dist/arrigo3.mjs` contienen el capítulo 3 de Arrigo. `tests/arrigo3.test.mjs` verifica soluciones, normalizaciones, dominios y perfiles numéricos. Ejecuta toda la batería con `node --test tests/*.test.mjs`.
+
+El capítulo 5 de Cantwell se implementa en `dist/cantwell5-content.mjs`, `dist/cantwell5.mjs` y `dist/cantwell5-math.mjs`. `tests/cantwell5.test.mjs` verifica flujos, invariantes, tabla de conmutadores, Jacobi, series derivadas y convergencia de cuarto orden.
