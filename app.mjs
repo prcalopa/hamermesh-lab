@@ -1,3 +1,4 @@
+import {renderDepthBridge} from './depth.mjs';
 import {renderArrigo3} from './arrigo3.mjs';
 import {names,permutations,multiply,inverse,order,cycles,parity,subgroupCheck,cosets,conjugate,conjugacyClass,isNormal,symmetricClasses,factorial} from './algebra.mjs';
 import {renderArrigo} from './arrigo.mjs';
@@ -30,6 +31,7 @@ function renderLibrary(){
 }
 function route(){
  stopAnimation();
+ $('#depth-view').innerHTML='';
  $('.sidebar').classList.remove('is-index-open');$('#lesson-menu').setAttribute('aria-expanded','false');
  const legacy=location.hash.match(/^#([1-7])\/(explorar|apuntes|practicar)$/),second=location.hash.match(/^#capitulo-2\/(10|[1-9])\/(explorar|apuntes|practicar)$/),modern=location.hash.match(/^#material\/([a-z0-9-]+)\/(\d+)\/(\d+)\/(explorar|apuntes|practicar)$/);
  let library=!location.hash||location.hash==='#biblioteca'||(['#main','#fuente'].includes(location.hash)&&$('#lesson-view').hidden);
@@ -67,6 +69,7 @@ function route(){
  else if(chapterData.renderer==='lie2')renderArrigo2(section,content);
  else if(chapterData.renderer==='space')renderChapter2(section,content);
  else [renderComposition,renderGroup,renderSubgroup,renderCosets,renderConjugacy,renderQuotient,renderProduct][section-1]();
+ if(tab==='explorar')renderDepthBridge($('#depth-view'),chapterData.deepening?.[section-1],routeHash(section,'apuntes'));
 }
 
 function tableMarkup(labels,op,a=-1,b=-1,interactive=true){return `<div class="table-scroll"><table><caption class="sr-only">Tabla de la operación: fila A, columna B, resultado AB</caption><thead><tr><th scope="col">A · B</th>${labels.map(v=>`<th scope="col">${v}</th>`).join('')}</tr></thead><tbody>${labels.map((v,i)=>`<tr><th scope="row">${v}</th>${labels.map((_,j)=>`<td>${interactive?`<button data-cell="${i},${j}" class="${i===a&&j===b?'selected':''}" aria-label="${v} por ${labels[j]} igual a ${labels[op(i,j)]}">${labels[op(i,j)]}</button>`:labels[op(i,j)]}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
