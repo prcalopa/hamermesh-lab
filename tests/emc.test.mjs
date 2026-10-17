@@ -87,9 +87,9 @@ test('Confusión, ROC y AUC: pares exhaustivos, empates y orden inverso',()=>{
  for(const scores of [[.8,.4,.6,.2],[.5,.5,.5,.5],[1,0,1,0]]){const labels=[1,1,0,0],r=M.roc(labels,scores);near(r.auc,pairAUC(labels,scores));near(M.roc(labels,scores.map(s=>-s)).auc,1-r.auc);assert.deepEqual(r.points.at(-1).x,1);assert.deepEqual(r.points.at(-1).y,1);}
  near(M.roc([1,1,0,0],[.8,.4,.6,.2]).auc,.75);
 });
-test('Cobertura EMC: siete capítulos, 68 laboratorios, 204 preguntas y sin capítulo 8',()=>{
- const m=materials.find(m=>m.id==='emc');assert.deepEqual(m.chapters.map(c=>c.id),[1,2,3,4,5,6,7]);assert.deepEqual(m.chapters.map(c=>c.lessons.length),[6,8,14,8,8,12,12]);
+test('Cobertura EMC: siete capítulos, 68 laboratorios, 204 preguntas originales conservados',()=>{
+ const m={...materials.find(m=>m.id==='emc'),chapters:materials.find(m=>m.id==='emc').chapters.filter(c=>c.id<=7)};assert.deepEqual(m.chapters.map(c=>c.id),[1,2,3,4,5,6,7]);assert.deepEqual(m.chapters.map(c=>c.lessons.length),[6,8,14,8,8,12,12]);
  assert.equal(m.chapters.flatMap(c=>c.lessons).length,68);assert.equal(m.chapters.flatMap(c=>c.quizzes).flat().length,204);
  for(const c of m.chapters){assert.equal(emcLabConfigs[c.id].length,c.lessons.length);for(let i=0;i<c.lessons.length;i++){assert.ok(c.notes[i].length>1000);assert.ok(c.lessons[i].reference);assert.equal(c.quizzes[i].length,3);}}
- assert.equal(materials.flatMap(m=>m.chapters).flatMap(c=>c.lessons).length,219);
+ assert.equal(materials.flatMap(m=>m.chapters).flatMap(c=>c.lessons).length,239);
 });
