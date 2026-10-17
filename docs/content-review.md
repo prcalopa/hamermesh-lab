@@ -1,5 +1,19 @@
 # Revisión de contenido y notación · 9 de octubre de 2026
 
+## Ramadevi y Dubey, capítulos 3, 5 y 6 · 17 de octubre de 2026
+
+Fuente: `Ramadevi_Dubey_Teoria_de_Grupos_ES.pdf`, 174 páginas, traducción española de trabajo de *Group Theory for Physicists: With Applications*. Capítulo 3: páginas impresas 29–58, PDF 42–72 (incluye una página adicional de continuación); capítulo 5: 87–114, PDF 101–128; capítulo 6: 115–150, PDF 129–164. Se ha extraído el texto y contrastado visualmente una selección de páginas de ecuaciones, tablas y ejemplos de los tres capítulos. Las fórmulas incrustadas como imágenes no se han inferido solo del texto extraído.
+
+La guía incorpora 40 secciones y 120 preguntas, con problemas seleccionados desarrollados y explicaciones originales en español. No reproduce íntegramente el libro ni distribuye el PDF. La cobertura sigue §§ 3.1–3.9, 5.1–5.7.3 y 6.1–6.6.2, agrupando la exposición en 12, 14 y 14 unidades respectivamente.
+
+- Representaciones: se distinguen operador de cambio de coordenadas, adjunto métrico y conjugado transpuesto; Maschke/Schur se usan con sus hipótesis sobre complejos y grupo finito. C3v se realiza como D3 de orden seis. Se desarrollan caracteres, proyectores, producto tensorial/directo e inducción desde un subgrupo de reflexión, verificando Frobenius.
+- Lie: se separan dimensión de grupo y de representación, álgebra y topología global. Se usan J±=Jx±iJy (sin el factor adicional de normalización de la fuente), hbar=1, T=λ/2 y corchete hermítico con factor i. Se distingue SU(2) de SO(3), compactitud de la forma real y estructura de su complejificación. El álgebra su(2) sí tiene subálgebras abelianas de dimensión uno. Pesos fundamentales y raíces se presentan como objetos distintos en las mismas coordenadas, con matriz de Cartan y cámaras de Weyl.
+- Aplicaciones: Young cuenta dimensiones mediante ganchos; las matrices CG son unitarias con fase Condon–Shortley y se contrastan frente a J total, corrigiendo ejemplos de coeficientes que no forman columnas ortogonales. Las reglas triangulares y de proyección de Wigner–Eckart son necesarias y no garantizan un elemento reducido no nulo. La razón ideal de canales de isospín declara elemento reducido común y omisión del espacio de fases. Sabor SU(3) se distingue de color; la ruptura usa un Hamiltoniano ilustrativo, sin masas experimentales.
+- Espacio-tiempo y Coulomb: firma (+---), rapidez y boosts no unitarios en la representación vectorial. Se distinguen conservación del intervalo y conformidad. La simetría dinámica del sector ligado se explica mediante dos su(2), con SO(4)=(SU(2)×SU(2))/Z2; no se confunden los grupos globales. Energías y degeneración se restringen al Coulomb no relativista ideal sin espín ni correcciones finas.
+
+Validación: 85 pruebas correctas en toda la biblioteca. Las siete nuevas pruebas verifican todos los productos de las dos representaciones inducidas, reciprocidad, espines hasta tres, normalización y cierre de Gell-Mann, matrices CG y Casimir para los 25 pares de espines del control, pesos/raíces, ganchos, Lorentz y Coulomb. Revisión de las 120 vistas nuevas, 128 interacciones con extremos y 80 vistas móviles a 390 px sin errores de renderizado matemático, valores SVG no finitos ni desbordamiento global. Se ha comprobado también la respuesta y explicación de un cuestionario.
+
+
 ## Cantwell, capítulo 5 · 16 de octubre de 2026
 
 Fuente: `Cantwell_T3_Analisis_de_Simetrias_ES.pdf`, 29 páginas: portada y páginas originales 121–148 (PDF 2–29). Se han extraído los textos y renderizado las 28 páginas del capítulo; las ecuaciones y tablas incrustadas se han contrastado visualmente. La guía ofrece 20 secciones, 60 preguntas y problemas seleccionados desarrollados, con explicaciones originales en español; no distribuye el PDF ni se presenta como traducción íntegra.
