@@ -8,7 +8,7 @@ import {renderArrigo2} from './arrigo2.mjs';
 import {renderChapter2} from './chapter2.mjs';
 import {renderCantwell} from './cantwell.mjs';
 import {renderChapter3} from './chapter3.mjs';
-import {materials,getMaterial} from './catalog.mjs?v=10';
+import {materials,getMaterial} from './catalog.mjs?v=11';
 import {observeMath,decorateMathMarkup,tex} from './math.mjs';
 const $=s=>document.querySelector(s), content=$('#content');let material='hamermesh',chapter=1,section=1,tab='explorar',timer=null,chapterData=null;const selection={a:1,b:3,step:2};
 const opLabels=['Identidad','Giro de 120°','Giro de 240°','Reflexión, eje 1','Reflexión, eje 3','Reflexión, eje 2'];
