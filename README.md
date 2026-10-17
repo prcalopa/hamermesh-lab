@@ -1,6 +1,6 @@
 # Cuaderno de física · Biblioteca del máster
 
-Portal de estudio en español, organizado por material, capítulo y sección. Incluye tres capítulos de Hamermesh y los capítulos 1, 2 y 3 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1, 2 y 5 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. Se añaden los capítulos 3, 5 y 6 de Pichai Ramadevi y Varun Dubey, *Group Theory for Physicists: With Applications*. La biblioteca ofrece 151 secciones interactivas y 544 preguntas razonadas.
+Portal de estudio en español, organizado por material, capítulo y sección. Incluye tres capítulos de Hamermesh y los capítulos 1, 2 y 3 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1, 2 y 5 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. Se añaden los capítulos 3, 5 y 6 de Pichai Ramadevi y Varun Dubey, *Group Theory for Physicists: With Applications*. Incluye además los capítulos 1–7 de EMC Education Services, *Data Science and Big Data Analytics* (2015). La biblioteca ofrece 219 secciones interactivas y 748 preguntas razonadas.
 
 Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicaciones, gráficos y preguntas se redactan para esta guía; los PDF y las páginas escaneadas no se distribuyen en la web. El portal es estático. KaTeX 0.19.0 y sus fuentes se sirven desde el propio repositorio, sin CDN ni servicios externos para las fórmulas. Las respuestas solo se conservan mientras la página está abierta, separadas por material, capítulo y sección.
 
@@ -136,3 +136,21 @@ Se desarrollan representaciones inducidas y reciprocidad de Frobenius; raíces, 
 `dist/ramadevi{3,5,6}-content.mjs` contiene los tres capítulos; `ramadevi-content.mjs`, los constructores; `ramadevi.mjs`, los 40 laboratorios; `ramadevi-math.mjs`, los cálculos. `tests/ramadevi.test.mjs` verifica productos inducidos y Frobenius, escalera y Casimir, álgebra de Gell-Mann, ortogonalidad CG y diagonalización de J total para todos los espines ofrecidos, geometría de raíces/pesos, dimensiones de Young, invariantes de Lorentz y degeneración de Coulomb.
 
 Validación de esta incorporación: 85 pruebas correctas en toda la biblioteca, 120 vistas nuevas sin fallos de fórmulas o desbordamiento, 128 comprobaciones de extremos de controles y 80 vistas a 390 px sin desbordamiento global. Las tablas y matrices grandes se desplazan dentro de su contenedor.
+
+
+## EMC Education Services · capítulos 1–7
+
+Nuevo material `emc`, **Ciencia de datos y estadística**: 68 secciones y 204 preguntas con respuesta razonada, repartidas en 6, 8, 14, 8, 8, 12 y 12 secciones por capítulo. Cada sección tiene un laboratorio y un desarrollo original con hipótesis y problema resuelto. Los ejemplos de código R usan funciones base y se muestran para copiar; las actividades del navegador se calculan en JavaScript. No requieren un servicio ni suben datos.
+
+La fuente es el PDF español Parte 1 de *Data Science and Big Data Analytics: Discovering, Analyzing, Visualizing and Presenting Data*, Wiley, 2015. El PDF contiene 250 páginas y termina en los ejercicios del capítulo 7 (p. impresa 230). Los rangos PDF por capítulo son 21–44, 45–82, 83–136, 137–156, 157–180, 181–210 y 211–250. La bibliografía de la p. 231 no está en esta parte. El capítulo 8 no se incorpora hasta recibir el segundo documento. No se distribuyen PDF, imágenes ni conjuntos de datos del libro.
+
+- Capítulos 1–2: escala de datos, granularidad, sesgo, Simpson, calidad y linaje, seis fases del ciclo, particiones, fuga, selección múltiple, cambio de distribución y redes del caso GINA mediante un ejemplo propio.
+- Capítulo 3: tipos y ausencias en R, descriptiva, cuantiles de tipo 7 y MAD sin escala, histogramas, correlación, Bernoulli/binomial y TCL, intervalos, Welch, rangos exactos, potencia normal, ANOVA y chi-cuadrado. Se separan valor p, magnitud del efecto y relevancia práctica.
+- Capítulos 4–5: objetivo y pasos de k-means, inicios, codo, silueta, escalado, DBSCAN y nociones jerárquicas; soporte, confianza, lift, leverage, conviction, Apriori con poda, validación de reglas e incertidumbre de proporciones.
+- Capítulos 6–7: MCO mediante QR reortogonalizado, rango, inferencia, R² y prueba externa, residuos, influencia e intervalos; logística estable, verosimilitud y ridge; árboles y poda, Bayes, Naive Bayes, suavizado, matriz de confusión, ROC/AUC, PR y costes de decisión.
+
+Se explican las correcciones de interpretación de la traducción: exactitud frente a precisión positiva; esquina ideal ROC (0,1); AUC puede ser inferior a 0,5; log-score bayesiano frente a posterior normalizada; no eliminación automática por valor p y distinción entre errores y residuos. Las referencias tecnológicas de 2015 se mantienen como contexto histórico.
+
+Contenido: `dist/emc-content.mjs`, `emc12-content.mjs` y `emc3-content.mjs` a `emc7-content.mjs`. Modelos: `emc-math.mjs`. Laboratorios: `emc.mjs`. Pruebas: `tests/emc.test.mjs`. Once pruebas nuevas contrastan distribuciones con casos cerrados, t y chi-cuadrado conocidos, identidades de varianza y ANOVA, rangos exactos, k-means, DBSCAN, Apriori frente a enumeración exhaustiva, QR/ridge, pérdidas logísticas, Bayes y AUC frente a pares exhaustivos con empates.
+
+Validación: **96 pruebas correctas**, 204 vistas nuevas sin errores de fórmulas o ejecución, 196 comprobaciones de extremos de controles y 136 vistas de laboratorio/lectura a 390 px sin desbordamiento global. Biblioteca revisada también a 320 px; cuestionario y explicación comprobados. Las tablas, el código y las fórmulas largas usan desplazamiento interno. Se ha verificado visualmente el trazado completo de intervalos y ROC, subdividiendo sus segmentos para evitar el corte de saltos que el trazador común reserva a funciones con polos.
