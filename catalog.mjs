@@ -1,3 +1,6 @@
+import {ramadevi3} from './ramadevi3-content.mjs';
+import {ramadevi5} from './ramadevi5-content.mjs';
+import {ramadevi6} from './ramadevi6-content.mjs';
 import {cantwell5Lessons,cantwell5Notes,cantwell5Quizzes} from './cantwell5-content.mjs';
 import {applyDepth} from './depth.mjs';
 import {arrigo3Lessons,arrigo3Notes,arrigo3Quizzes} from './arrigo3-content.mjs';
@@ -17,6 +20,11 @@ export const hamermeshLessons=[
  {title:'Productos directos',nav:'Productos directos',pages:'30–31',desc:'Dos grupos independientes se combinan en pares. Cada componente conserva su propia operación.'}
 ];
 export const materials=[
+ {id:'ramadevi',shortTitle:'Ramadevi y Dubey · Grupos y física',author:'Pichai Ramadevi y Varun Dubey',title:'Teoría de grupos para físicos',original:'Group Theory for Physicists: With Applications',area:'Teoría de grupos · nivel avanzado',description:'Representaciones, álgebras de Lie y aplicaciones a momentos angulares, sabores, espacio-tiempo y átomo de hidrógeno.',accent:'groups',symbol:'SU(3)',chapters:[
+  {id:3,shortTitle:'Representaciones de grupos',title:'Representaciones de grupos',...ramadevi3,renderer:'ramadevi',pages:'29–58',pdfPages:'42–72',reference:'§§ 3.1–3.9',thread:'Identifica la simetría.<br>Construye la representación.<br>Deduce sus consecuencias.',symbolTex:String.raw`\chi(g)=\operatorname{tr}D(g)`},
+  {id:5,shortTitle:'Grupos y álgebras de Lie',title:'Grupos y álgebras de Lie',...ramadevi5,renderer:'ramadevi',pages:'87–114',pdfPages:'101–128',reference:'§§ 5.1–5.7.3',thread:'Identifica la simetría.<br>Construye la representación.<br>Deduce sus consecuencias.',symbolTex:String.raw`[T_a,T_b]=if_{ab}^{\ \ c}T_c`},
+  {id:6,shortTitle:'Aplicaciones de teoría de grupos',title:'Aplicaciones de teoría de grupos',...ramadevi6,renderer:'ramadevi',pages:'115–150',pdfPages:'129–164',reference:'§§ 6.1–6.6.2',thread:'Identifica la simetría.<br>Construye la representación.<br>Deduce sus consecuencias.',symbolTex:String.raw`j_1\otimes j_2=\bigoplus_{J=|j_1-j_2|}^{j_1+j_2}J`},
+ ]},
  {id:'cantwell',shortTitle:'Cantwell · Simetría y dimensiones',author:'Brian J. Cantwell',title:'Análisis de simetría y semejanza',original:'Introduction to Symmetry Analysis',area:'Métodos matemáticos · nivel avanzado',description:'De las simetrías discretas a la difusión, los grupos continuos y el análisis dimensional. Derivaciones, dominios y límites de los modelos.',accent:'cantwell',symbol:'Π',chapters:[
   {id:1,shortTitle:'Introducción a la simetría',title:'Introducción a la simetría',lessons:cantwell1Lessons,notes:cantwell1Notes,quizzes:cantwell1Quizzes,renderer:'cantwell',pages:'1–32',pdfPages:'1–32',reference:'§§ 1.1–1.8',thread:'Conserva una estructura.<br>Transforma las derivadas.<br>Reduce el problema.',symbol:'Tₛ∘Tₜ=Tₛ₊ₜ',symbolTex:String.raw`T_s\circ T_t=T_{s+t}`},
   {id:2,shortTitle:'Análisis dimensional',title:'Análisis dimensional',lessons:cantwell2Lessons,notes:cantwell2Notes,quizzes:cantwell2Quizzes,renderer:'cantwell',pages:'33–54',pdfPages:'33–54',reference:'§§ 2.1–2.7',thread:'Elige las variables.<br>Calcula los invariantes.<br>Examina las hipótesis.',symbol:'Av=0',symbolTex:String.raw`Av=0,\quad\dim\ker A=n-r`},
