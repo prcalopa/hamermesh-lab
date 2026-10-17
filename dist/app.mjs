@@ -1,3 +1,4 @@
+import {renderEMC} from './emc.mjs';
 import {renderRamadevi} from './ramadevi.mjs';
 import {renderCantwell5} from './cantwell5.mjs';
 import {renderDepthBridge} from './depth.mjs';
@@ -8,7 +9,7 @@ import {renderArrigo2} from './arrigo2.mjs';
 import {renderChapter2} from './chapter2.mjs';
 import {renderCantwell} from './cantwell.mjs';
 import {renderChapter3} from './chapter3.mjs';
-import {materials,getMaterial} from './catalog.mjs?v=11';
+import {materials,getMaterial} from './catalog.mjs?v=12';
 import {observeMath,decorateMathMarkup,tex} from './math.mjs';
 const $=s=>document.querySelector(s), content=$('#content');let material='hamermesh',chapter=1,section=1,tab='explorar',timer=null,chapterData=null;const selection={a:1,b:3,step:2};
 const opLabels=['Identidad','Giro de 120°','Giro de 240°','Reflexión, eje 1','Reflexión, eje 3','Reflexión, eje 2'];
@@ -64,8 +65,10 @@ function route(){
  if(material==='arrigo'&&chapter===3)$('#fuente').innerHTML='<strong>Una guía para leer junto a Daniel J. Arrigo.</strong><p>Capítulo 3, §§ 3.1–3.5, páginas originales 73–132; páginas 91–157 del PDF traducido al español. Desarrollo original en español con ejercicios seleccionados; no reproduce el capítulo íntegro.</p><p>τ, ξ, η corresponden a T, X, U del libro. Las prolongaciones usan derivadas totales; las reducciones se verifican en su dominio. Burgers tiene viscosidad uno y KdV coeficiente convectivo uno. Se explican las normalizaciones de Blasius y la corrección del factor constante en la reducción logarítmica de la p. 106. Los perfiles numéricos son problemas iniciales en intervalos finitos, salvo el ajuste de Blasius expresamente indicado.</p>';
  if(material==='cantwell'&&chapter===5)$('#fuente').innerHTML='<strong>Una guía para leer junto a Brian J. Cantwell.</strong><p>Capítulo 5, §§ 5.1–5.14, páginas originales 121–148; páginas 2–29 del PDF español. Apuntes y problemas originales en español con ejercicios seleccionados. Φ lleva el punto inicial al punto imagen. [A,B]=AB−BA como operadores sobre funciones; la tabla usa fila primero y columna después.</p><p>Se distinguen flujo local y global, convergencia de la serie y existencia del flujo, función invariante y conjunto de ceros. Se aclaran la identidad de Jordan de la p. 144, la notación de los boosts de la p. 147 y el carácter relativo de los ideales en la cadena de resolubilidad. Las integraciones del ejercicio de llama son aproximaciones en intervalos finitos, no soluciones exactas de condiciones en infinito.</p>';
  if(material==='ramadevi')$('#fuente').innerHTML='<strong>Una guía para leer junto a Ramadevi y Dubey.</strong><p>Basada en <cite>'+m.original+'</cite>, capítulo '+chapter+', '+chapterData.reference+', páginas impresas '+chapterData.pages+' (PDF español, páginas '+chapterData.pdfPages+'). Explicaciones, problemas seleccionados y actividades originales en español; consulta el libro para la exposición completa.</p><p>AB aplica B y después A. Se trabaja sobre ℂ salvo indicación. J±=Jx±iJy y hbar=1 en los laboratorios de espín; T=λ/2 en SU(3). Se distinguen pesos de raíces, SU(2) de SO(3), sabor de color y simetrías ideales de aproximaciones físicas. La firma de Minkowski es (+---). Las convenciones y condiciones de validez se desarrollan en cada sección.</p>';
+ if(material==='emc')$('#fuente').innerHTML='<strong>Una guía para leer junto a EMC Education Services.</strong><p>Basada en <cite>'+m.original+'</cite>, capítulo '+chapter+', '+chapterData.reference+', páginas impresas '+chapterData.pages+' (PDF español Parte 1, páginas '+chapterData.pdfPages+'). Explicaciones, problemas y simulaciones originales; no se distribuye el PDF ni sus conjuntos de datos. La primera parte termina en los ejercicios de la p. 230; el capítulo 8 se incorporará con el siguiente documento.</p><p>Datos sintéticos y semillas fijas en los laboratorios. Las ampliaciones se identifican en la referencia de cada sección. Se declaran hipótesis de independencia, distribución y muestreo; los valores p no son probabilidades posteriores. Las métricas distinguen exactitud de precisión positiva. Filas reales y columnas predichas en matrices de confusión. El código R se muestra para reproducir fuera del navegador y conserva los nombres originales de las funciones. Las referencias a tecnología y organizaciones de 2015 se leen como contexto histórico.</p>';
  if(tab==='apuntes')content.innerHTML='<article class="notes card"><span class="note-label">Lectura acompañada · § '+lessonReference+' · pp. '+l.pages+'</span>'+decorateMathMarkup(chapterData.notes[section-1])+'</article>';
  else if(tab==='practicar')renderPractice();
+ else if(chapterData.renderer==='emc')renderEMC(chapter,section,content);
  else if(chapterData.renderer==='ramadevi')renderRamadevi(chapter,section,content);
  else if(chapterData.renderer==='representations')renderChapter3(section,content);
  else if(chapterData.renderer==='cantwell5')renderCantwell5(section,content);
