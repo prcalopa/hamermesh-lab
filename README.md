@@ -1,6 +1,6 @@
 # Cuaderno de física · Biblioteca del máster
 
-Portal de estudio en español, organizado por material, capítulo y sección. Incluye tres capítulos de Hamermesh y los capítulos 1, 2 y 3 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1, 2 y 5 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. La biblioteca ofrece 111 secciones interactivas y 424 preguntas razonadas.
+Portal de estudio en español, organizado por material, capítulo y sección. Incluye tres capítulos de Hamermesh y los capítulos 1, 2 y 3 de Daniel J. Arrigo, *Symmetry Analysis of Differential Equations: An Introduction*. Incluye también los capítulos 1, 2 y 5 de Brian J. Cantwell, *Introduction to Symmetry Analysis*, con un nivel matemático más avanzado. Se añaden los capítulos 3, 5 y 6 de Pichai Ramadevi y Varun Dubey, *Group Theory for Physicists: With Applications*. La biblioteca ofrece 151 secciones interactivas y 544 preguntas razonadas.
 
 Cada sección ofrece **Explorar**, **Paso a paso** y **Practicar**. Las explicaciones, gráficos y preguntas se redactan para esta guía; los PDF y las páginas escaneadas no se distribuyen en la web. El portal es estático. KaTeX 0.19.0 y sus fuentes se sirven desde el propio repositorio, sin CDN ni servicios externos para las fórmulas. Las respuestas solo se conservan mientras la página está abierta, separadas por material, capítulo y sección.
 
@@ -125,3 +125,14 @@ Se añadieron únicamente los capítulos 1 y 2 solicitados. El capítulo 5 no fo
 Los módulos `dist/arrigo3-content.mjs`, `dist/arrigo3-math.mjs` y `dist/arrigo3.mjs` contienen el capítulo 3 de Arrigo. `tests/arrigo3.test.mjs` verifica soluciones, normalizaciones, dominios y perfiles numéricos. Ejecuta toda la batería con `node --test tests/*.test.mjs`.
 
 El capítulo 5 de Cantwell se implementa en `dist/cantwell5-content.mjs`, `dist/cantwell5.mjs` y `dist/cantwell5-math.mjs`. `tests/cantwell5.test.mjs` verifica flujos, invariantes, tabla de conmutadores, Jacobi, series derivadas y convergencia de cuarto orden.
+
+
+## Ramadevi y Dubey · capítulos 3, 5 y 6
+
+Nuevo material con 40 secciones y 120 preguntas razonadas: 12 secciones de representaciones (cap. 3), 14 de grupos y álgebras de Lie (cap. 5) y 14 de aplicaciones físicas (cap. 6). Cada sección contiene un laboratorio, una derivación con hipótesis y un problema desarrollado original en español. Las páginas se refieren al PDF español suministrado: 42–72, 101–128 y 129–164; no se distribuye el PDF.
+
+Se desarrollan representaciones inducidas y reciprocidad de Frobenius; raíces, pesos y mayor peso; SU(2)/SO(3), Gell-Mann y SU(3); diagramas de Young, Clebsch–Gordan, Wigner–Eckart, isospín, multipletes de sabor, Lorentz/Poincaré y simetría SO(4) del Coulomb ligado. Las convenciones de escalera, fase y firma se declaran junto a las fórmulas, y se separan simetrías exactas de modelos físicos ideales.
+
+`dist/ramadevi{3,5,6}-content.mjs` contiene los tres capítulos; `ramadevi-content.mjs`, los constructores; `ramadevi.mjs`, los 40 laboratorios; `ramadevi-math.mjs`, los cálculos. `tests/ramadevi.test.mjs` verifica productos inducidos y Frobenius, escalera y Casimir, álgebra de Gell-Mann, ortogonalidad CG y diagonalización de J total para todos los espines ofrecidos, geometría de raíces/pesos, dimensiones de Young, invariantes de Lorentz y degeneración de Coulomb.
+
+Validación de esta incorporación: 85 pruebas correctas en toda la biblioteca, 120 vistas nuevas sin fallos de fórmulas o desbordamiento, 128 comprobaciones de extremos de controles y 80 vistas a 390 px sin desbordamiento global. Las tablas y matrices grandes se desplazan dentro de su contenedor.
